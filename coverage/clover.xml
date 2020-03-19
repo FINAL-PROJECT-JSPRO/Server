@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1584643369319" clover="3.2.0">
-  <project timestamp="1584643369320" name="All files">
-    <metrics statements="112" coveredstatements="110" conditionals="37" coveredconditionals="29" methods="29" coveredmethods="26" elements="178" coveredelements="165" complexity="0" loc="112" ncloc="112" packages="6" files="14" classes="14"/>
+<coverage generated="1584643749022" clover="3.2.0">
+  <project timestamp="1584643749022" name="All files">
+    <metrics statements="121" coveredstatements="119" conditionals="37" coveredconditionals="29" methods="35" coveredmethods="32" elements="193" coveredelements="180" complexity="0" loc="121" ncloc="121" packages="6" files="17" classes="17"/>
     <package name="Server">
       <metrics statements="15" coveredstatements="15" conditionals="6" coveredconditionals="4" methods="1" coveredmethods="1"/>
       <file name="app.js" path="/home/dk/hacktiv8/FINAL-PROJECT-JS-PRO/Server/app.js">
@@ -85,8 +85,20 @@
       </file>
     </package>
     <package name="Server.models">
-      <metrics statements="38" coveredstatements="37" conditionals="13" coveredconditionals="10" methods="16" coveredmethods="16"/>
+      <metrics statements="47" coveredstatements="46" conditionals="13" coveredconditionals="10" methods="22" coveredmethods="22"/>
+      <file name="chapter.js" path="/home/dk/hacktiv8/FINAL-PROJECT-JS-PRO/Server/models/chapter.js">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+      </file>
       <file name="exam.js" path="/home/dk/hacktiv8/FINAL-PROJECT-JS-PRO/Server/models/exam.js">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+      </file>
+      <file name="history.js" path="/home/dk/hacktiv8/FINAL-PROJECT-JS-PRO/Server/models/history.js">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="2" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
@@ -105,12 +117,12 @@
         <line num="13" count="0" type="stmt"/>
         <line num="15" count="1" type="stmt"/>
         <line num="18" count="1" type="stmt"/>
-        <line num="21" count="5" type="cond" truecount="3" falsecount="0"/>
-        <line num="24" count="4" type="stmt"/>
-        <line num="25" count="4" type="stmt"/>
+        <line num="21" count="8" type="cond" truecount="3" falsecount="0"/>
+        <line num="24" count="7" type="stmt"/>
+        <line num="25" count="7" type="stmt"/>
         <line num="28" count="1" type="stmt"/>
-        <line num="29" count="4" type="cond" truecount="1" falsecount="1"/>
-        <line num="30" count="4" type="stmt"/>
+        <line num="29" count="7" type="cond" truecount="1" falsecount="1"/>
+        <line num="30" count="7" type="stmt"/>
         <line num="34" count="1" type="stmt"/>
         <line num="35" count="1" type="stmt"/>
         <line num="37" count="1" type="stmt"/>
@@ -125,7 +137,7 @@
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="2" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
-        <line num="14" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
       </file>
       <file name="user.js" path="/home/dk/hacktiv8/FINAL-PROJECT-JS-PRO/Server/models/user.js">
         <metrics statements="9" coveredstatements="9" conditionals="4" coveredconditionals="4" methods="7" coveredmethods="7"/>
@@ -136,8 +148,14 @@
         <line num="26" count="24" type="cond" truecount="2" falsecount="0"/>
         <line num="48" count="24" type="stmt"/>
         <line num="50" count="24" type="cond" truecount="2" falsecount="0"/>
-        <line num="74" count="16" type="stmt"/>
-        <line num="78" count="1" type="stmt"/>
+        <line num="73" count="16" type="stmt"/>
+        <line num="77" count="1" type="stmt"/>
+      </file>
+      <file name="useranswer.js" path="/home/dk/hacktiv8/FINAL-PROJECT-JS-PRO/Server/models/useranswer.js">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
       </file>
     </package>
     <package name="Server.routes">
