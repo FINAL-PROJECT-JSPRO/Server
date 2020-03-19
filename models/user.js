@@ -65,8 +65,7 @@ module.exports = (sequelize, DataTypes) => {
           msg: "Password cannot be empty"
         }
       }
-    },
-    LevelId: DataTypes.INTEGER
+    }
   }, {
     sequelize,
     hooks: {
