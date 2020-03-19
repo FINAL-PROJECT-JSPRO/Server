@@ -1,0 +1,16 @@
+{
+  "development": {
+    "username": "ninoloid",
+    "password": "ninoloid",
+    "database": "jspro_development",
+    "host": "127.0.0.1",
+    "dialect": "postrgres"
+  },
+  "test": {
+    "username": "ninoloid",
+    "password": "ninoloid",
+    "database": "jspro_test",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
