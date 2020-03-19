@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  class Subject extends sequelize.Sequelize.Model {
+  class Exam extends sequelize.Sequelize.Model {
     static associate(models) {
       // association
     }
