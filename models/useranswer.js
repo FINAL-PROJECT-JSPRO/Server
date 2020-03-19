@@ -1,15 +1,17 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  class History extends sequelize.Sequelize.Model {
+  class UserAnswer extends sequelize.Sequelize.Model {
     static associate(models) {
       // association
     }
   }
-
-  History.init({
+  
+  UserAnswer.init({
     UserId: DataTypes.INTEGER,
-    SubjectId: DataTypes.INTEGER,
+    ExamId: DataTypes.STRING,
+    answer: DataTypes.STRING,
+    time: DataTypes.INTEGER,
     status: DataTypes.BOOLEAN
   }, { sequelize });
-  return History;
+  return UserAnswer;
 };
