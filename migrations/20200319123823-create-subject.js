@@ -8,10 +8,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      subject: {
-        type: Sequelize.STRING
-      },
-      chapter: {
+      name: {
         type: Sequelize.STRING
       },
       LevelId: {
