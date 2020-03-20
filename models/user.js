@@ -73,6 +73,14 @@ module.exports = (sequelize, DataTypes) => {
     hooks: {
       beforeCreate: user => {
         user.password = hash(user.password)
+      },
+      afterCreate: user => {
+        const History = sequelize.models.History
+        History.create({
+          UserId: user.id,
+          SubjectId: 1,
+          status: false
+        })
       }
     }
   });
