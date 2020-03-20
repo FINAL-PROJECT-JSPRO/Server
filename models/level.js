@@ -3,6 +3,7 @@ module.exports = (sequelize, DataTypes) => {
   class Level extends sequelize.Sequelize.Model {
     static associate(models) {
       // association
+      Level.hasMany(models.Subject)
     }
   }
 
