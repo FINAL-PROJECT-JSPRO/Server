@@ -12,10 +12,10 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       ExamId: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       answer: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       time: {
         type: Sequelize.INTEGER
