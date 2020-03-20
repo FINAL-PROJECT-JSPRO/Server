@@ -8,8 +8,8 @@ module.exports = (sequelize, DataTypes) => {
   
   UserAnswer.init({
     UserId: DataTypes.INTEGER,
-    ExamId: DataTypes.STRING,
-    answer: DataTypes.STRING,
+    ExamId: DataTypes.INTEGER,
+    answer: DataTypes.TEXT,
     time: DataTypes.INTEGER,
     status: DataTypes.BOOLEAN
   }, { sequelize });

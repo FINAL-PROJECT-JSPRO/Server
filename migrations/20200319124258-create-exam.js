@@ -9,10 +9,10 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       question: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       answer: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       LevelId: {
         type: Sequelize.INTEGER

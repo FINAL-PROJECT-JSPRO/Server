@@ -7,8 +7,8 @@ module.exports = (sequelize, DataTypes) => {
   }
 
   Exam.init({
-    question: DataTypes.STRING,
-    answer: DataTypes.STRING,
+    question: DataTypes.TEXT,
+    answer: DataTypes.TEXT,
     LevelId: DataTypes.INTEGER
   }, { sequelize });
   return Exam;
