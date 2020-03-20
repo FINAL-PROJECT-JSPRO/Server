@@ -3,6 +3,9 @@ module.exports = (sequelize, DataTypes) => {
   class Subject extends sequelize.Sequelize.Model {
     static associate(models) {
       // association
+      Subject.belongsTo(models.Level)
+      Subject.hasMany(models.Chapter)
+      Subject.hasMany(models.Exam)
     }
   }
 
