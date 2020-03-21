@@ -3,24 +3,24 @@ const { History } = require('../models')
 module.exports = {
   addHistory(req, res, next) {
     const UserId = req.currentUserId
-    const { SubjectId, status } = req.body
+    const { ChapterId, status } = req.body
     History.create({
       UserId,
-      SubjectId,
+      ChapterId,
       status
     })
     .then(userHistory => {
       res.status(200).json(userHistory)
     })
-    .catch(err => next(err))
+    .catch(next)
   },
 
   updateHistory(req, res, next) {
     const UserId = req.currentUserId
-    const { SubjectId, status } = req.body
+    const { ChapterId, status } = req.body
     History.update({
       status
-    }, { where: { UserId, SubjectId }} )
+    }, { where: { UserId, ChapterId }} )
       .then(result => {
         if (result[0]) {
           res
