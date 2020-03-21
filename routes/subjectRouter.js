@@ -3,6 +3,6 @@ const { subjectController } = require('../controllers')
 const authentication = require('../middlewares/authentication')
 
 router.get('/', authentication, subjectController.getAllChapter)
-router.get('/:id', subjectController.getOneChapter)
+router.get('/:id', authentication, subjectController.getOneChapter)
 
 module.exports = router
