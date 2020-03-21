@@ -1,5 +1,5 @@
 module.exports = (err, req, res, next) => {
-    // console.log(err)
+    console.log(err)
     if (err.type === 'notlogin') {
         err.status = 403
         err.msg = "This page can only be accessed by registered users"

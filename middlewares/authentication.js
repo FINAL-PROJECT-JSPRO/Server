@@ -12,7 +12,6 @@ module.exports = (req, res, next) => {
             if (user) {
               req.currentUserId = user.id
               req.userHistories = user.Histories
-              console.log(user.Histories)
               next()
             } else {
               next({ type: "banned" })

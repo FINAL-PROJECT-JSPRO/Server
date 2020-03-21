@@ -11,7 +11,7 @@ module.exports = {
       UserId: {
         type: Sequelize.INTEGER
       },
-      SubjectId: {
+      ChapterId: {
         type: Sequelize.INTEGER
       },
       status: {

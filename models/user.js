@@ -78,7 +78,7 @@ module.exports = (sequelize, DataTypes) => {
         const History = sequelize.models.History
         History.create({
           UserId: user.id,
-          SubjectId: 1,
+          ChapterId: 1,
           status: false
         })
       }
