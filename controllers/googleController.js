@@ -4,9 +4,7 @@ const { OAuth2Client } = require('google-auth-library')
 const client = new OAuth2Client(process.env.CLIENT_ID)
 
 class GoogleController {
-  static signInGoogle (req, res) {
-    // console.log('masuukkkkkkkk')
-    // console.log(req.headers)
+  static signInGoogle (req, res, next) {
     let email
     let username
     client.verifyIdToken({
