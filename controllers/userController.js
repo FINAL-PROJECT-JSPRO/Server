@@ -4,6 +4,7 @@ const { sign } = require('../helpers/jwt')
 
 class UserController {
     static register (req, res, next) {
+      console.log('registering')
         const {username, email, password} = req.body
         User.create({
             username, email, password
@@ -19,6 +20,7 @@ class UserController {
     }
 
     static login (req, res, next) {
+        // console.log(req.body, '===')
         const { userInput, password } = req.body 
         const promises = [
             User.findOne({ where: { email: userInput } }),
