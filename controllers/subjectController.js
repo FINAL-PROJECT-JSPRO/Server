@@ -1,14 +1,14 @@
 const { Chapter } = require('../models')
 
 module.exports = {
-  getAllChapter(req, res) {
+  getAllChapter(req, res, next) {
     Chapter.findAll()
       .then(chapters => {
         res
           .status(200)
           .json(chapters)
       })
-      .catch(console.log)
+      .catch(next)
   },
 
   getOneChapter(req, res, next) {
@@ -19,6 +19,6 @@ module.exports = {
           .status(200)
           .json(chapter)
       })
-      .catch(console.log)
+      .catch(next)
   }
 }
