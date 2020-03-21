@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // association
       UserAnswer.belongsTo(models.User)
-      UserAnswer.hasOne(models.Exam)
+      // UserAnswer.hasOne(models.Exam)
     }
   }
   

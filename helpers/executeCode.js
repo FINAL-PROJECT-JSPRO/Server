@@ -1,13 +1,15 @@
+const vm = require('vm')
+
 module.exports = str => {
   const result = {
-    success: '',
-    error: ''
+    success: null,
+    error: {}
   }
   try {
-    const newFunction = new Function(str)
-    result.success = newFunction()
+    result.success = vm.runInNewContext(str)
   } catch (error) {
-    result.error = error
+      result.error.name = error.name
+      result.error.message = error.message
   }
   return result
 }
