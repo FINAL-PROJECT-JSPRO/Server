@@ -17,6 +17,8 @@ module.exports = (req, res, next) => {
               next({ type: "banned" })
             }
           })
+      } else {
+        next({ type: 'notLogin' })
       }
     }
     catch (err) {
