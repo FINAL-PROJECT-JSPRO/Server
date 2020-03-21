@@ -2,7 +2,7 @@ const { Exam, Subject } = require('../models')
 
 module.exports = {
   getAllExam(req, res, next) {
-    Exam.findAll()
+    Exam.findAll({ include: Subject })
       .then(exams => {
         res
           .status(200)
