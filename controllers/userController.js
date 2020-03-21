@@ -1,4 +1,4 @@
-const { User } = require('../models')
+const { User, History } = require('../models')
 const { compare } = require('../helpers/hash')
 const { sign } = require('../helpers/jwt')
 
@@ -21,7 +21,7 @@ class UserController {
 
     static login (req, res, next) {
         // console.log(req.body, '===')
-        const { userInput, password } = req.body 
+        const { userInput, password } = req.body
         const promises = [
             User.findOne({ where: { email: userInput } }),
             User.findOne({ where: { username: userInput } })
@@ -71,6 +71,21 @@ class UserController {
                     }
                 }
             })
+    }
+
+    static findOne (req, res, next) {
+        const id = req.currentUserId
+        User.findOne({
+            include: [History],
+            attributes: ['username','email'],
+            where: {
+                id
+            },
+        })
+        .then(user => {
+            res.status(200).json(user)
+        })
+        .catch(err =>  next(err))
     }
 }
 
