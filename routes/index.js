@@ -5,7 +5,7 @@ const subjectRouter = require('./subjectRouter')
 const levelRouter = require('./levelRouter')
 const codeRouter = require('./codeRouter')
 
-router.use('/', userRouter)
+router.use('/users', userRouter)
 router.use('/exams', examRouter)
 router.use('/subjects', subjectRouter)
 router.use('/levels', levelRouter)
