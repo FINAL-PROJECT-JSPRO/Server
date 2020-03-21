@@ -1,11 +1,12 @@
 const { User } = require('../models')
+const { sign } = require('../helpers/jwt')
 const { OAuth2Client } = require('google-auth-library')
 const client = new OAuth2Client(process.env.CLIENT_ID)
 
 class GoogleController {
   static signInGoogle (req, res) {
-    console.log('masuukkkkkkkk')
-    console.log(req.headers)
+    // console.log('masuukkkkkkkk')
+    // console.log(req.headers)
     let email
     let username
     client.verifyIdToken({
@@ -35,20 +36,15 @@ class GoogleController {
           }
        })
        .then(userLogin => {
-          console.log(userLogin)
+          // console.log(userLogin)
+          let token = sign({ id: userLogin.id, email })
           console.log('masuk signIn COntroller 3')
-          let token = generateToken({ id: userLogin.id, email })
-          console.log(token)
+          // console.log(token)
           res.status(200).json({
              token
           })
        })
-       .catch(err => {
-          res.status(400).json({
-             status: 400,
-             msg: 'fail sign in via Google'
-          })
-       })
+       .catch(next)
  }
 }
 
