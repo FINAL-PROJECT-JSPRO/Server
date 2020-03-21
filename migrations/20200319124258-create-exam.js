@@ -11,10 +11,13 @@ module.exports = {
       question: {
         type: Sequelize.TEXT
       },
+      skeleton: {
+        type: Sequelize.TEXT
+      },
       answer: {
         type: Sequelize.TEXT
       },
-      LevelId: {
+      SubjectId: {
         type: Sequelize.INTEGER
       },
       createdAt: {
