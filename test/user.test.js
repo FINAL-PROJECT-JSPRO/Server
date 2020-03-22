@@ -40,10 +40,9 @@ describe('User Routes', () => {
                     })
                     .end((err, response) => {
                         expect(err).toBe(null)
-                        expect(response.body).toHaveProperty('username', expect.any(String))
-                        expect(response.body).toHaveProperty('email', expect.any(String))
-                        expect(response.body).toHaveProperty('password', expect.any(String))
-                        expect(response.status).toBe(201)
+                        expect(response.body).toHaveProperty('msg', 'Register Success')
+                        expect(response.body).toHaveProperty('token', expect.any(String))
+                        expect(response.status).toBe(200)
                         done()
                     })
             })
