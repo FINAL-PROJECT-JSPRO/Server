@@ -19,8 +19,8 @@ class UserController {
             .catch(next)
     }
 
-    static login (req, res, next) {
-        console.log(req.body, '===')
+    static login(req, res, next) {
+        // console.log(req.body, '===')
         const { userInput, password } = req.body
         const promises = [
             User.findOne({ where: { email: userInput } }),
@@ -49,7 +49,7 @@ class UserController {
                             next({
                                 status: 400,
                                 msg: "Invalid Password"
-                            })  
+                            })
                         }
                     } else if (response[1] !== null) {
                         const check = compare(password, response[1].password)
@@ -66,7 +66,7 @@ class UserController {
                             next({
                                 status: 400,
                                 msg: "Invalid Password"
-                            })  
+                            })
                         }
                     }
                 }
@@ -74,22 +74,22 @@ class UserController {
             .catch(next)
     }
 
-    static findOne (req, res, next) {
+    static findOne(req, res, next) {
         const id = req.currentUserId
         User.findOne({
             include: [History],
-            attributes: ['username','email', 'name'],
+            attributes: ['username', 'email', 'name'],
             where: {
                 id
             },
         })
-        .then(user => {
-            res.status(200).json(user)
-        })
-        .catch(next)
+            .then(user => {
+                res.status(200).json(user)
+            })
+            .catch(next)
     }
 
-    static editProfile (req, res, next) {
+    static editProfile(req, res, next) {
         const { name, username, email } = req.body
         const id = req.currentUserId
         User.update({
@@ -97,11 +97,10 @@ class UserController {
         }, {
             where: { id }
         })
-            .then(result => {
-                console.log(result)
-                res.status(200).json(result)
-            })
-            .catch(next)
+        .then(result => {
+            res.status(200).json(result)
+        })
+        .catch(next)
     }
 }
 

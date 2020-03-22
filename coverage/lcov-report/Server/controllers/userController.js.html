@@ -164,12 +164,22 @@
 <a name='L105'></a><a href='#L105'>105</a>
 <a name='L106'></a><a href='#L106'>106</a>
 <a name='L107'></a><a href='#L107'>107</a>
+<<<<<<< HEAD
+<a name='L108'></a><a href='#L108'>108</a>
+<a name='L109'></a><a href='#L109'>109</a>
+<a name='L110'></a><a href='#L110'>110</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+=======
 <a name='L108'></a><a href='#L108'>108</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">6x</span>
+>>>>>>> origin
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -186,7 +196,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<<<<<<< HEAD
+<span class="cline-any cline-neutral">&nbsp;</span>
+=======
 <span class="cline-any cline-yes">5x</span>
+>>>>>>> origin
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -240,7 +254,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<<<<<<< HEAD
+=======
 <span class="cline-any cline-neutral">&nbsp;</span>
+>>>>>>> origin
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -271,15 +288,28 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<<<<<<< HEAD
+<span class="cline-any cline-neutral">&nbsp;</span>
+=======
+>>>>>>> origin
 <span class="cline-any cline-yes">6x</span></td><td class="text"><pre class="prettyprint lang-js">const { User, History } = require('../models')
 const { compare } = require('../helpers/hash')
 const { sign } = require('../helpers/jwt')
 &nbsp;
 class UserController {
+<<<<<<< HEAD
+    static register(req, res, next) {
+        // console.log('registering')
+        console.log(req.body)
+        const { name, username, email, password } = req.body
+        User.create({
+            name: req.body.name, username, email, password
+=======
     static register (req, res, next) {
         const {name, username, email, password} = req.body
         User.create({
             username, email, password, name
+>>>>>>> origin
         })
             .then(user =&gt; {
                 res.status(201).json({
@@ -292,8 +322,13 @@ class UserController {
             .catch(next)
     }
 &nbsp;
+<<<<<<< HEAD
+    static login(req, res, next) {
+        // console.log(req.body, '===')
+=======
     static login (req, res, next) {
         console.log(req.body, '===')
+>>>>>>> origin
         const { userInput, password } = req.body
         const promises = [
             User.findOne({ where: { email: userInput } }),
@@ -322,7 +357,7 @@ class UserController {
                             next({
                                 status: 400,
                                 msg: "Invalid Password"
-                            })  
+                            })
                         }
                     } else <span class="missing-if-branch" title="else path not taken" >E</span>if (response[1] !== null) {
                         const check = compare(password, response[1].password)
@@ -339,7 +374,7 @@ class UserController {
                             next({
                                 status: 400,
                                 msg: "Invalid Password"
-                            })  
+                            })
                         }
                     }
                 }
@@ -376,6 +411,37 @@ class UserController {
             })
             .catch(next)
     }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    st</span>atic findOne(req, res, next) {
+        const id = <span class="cstat-no" title="statement not covered" >req.currentUserId</span>
+<span class="cstat-no" title="statement not covered" >        User.findOne({</span>
+            include: [History],
+            attributes: ['username', 'email', 'name'],
+            where: {
+                id
+            },
+        })
+            .then(<span class="fstat-no" title="function not covered" >us</span>er =&gt; {
+<span class="cstat-no" title="statement not covered" >                res.status(200).json(user)</span>
+            })
+            .catch(next)
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    st</span>atic editProfile(req, res, next) {
+        const { name, username, email } = <span class="cstat-no" title="statement not covered" >req.body</span>
+        const id = <span class="cstat-no" title="statement not covered" >req.currentUserId</span>
+<span class="cstat-no" title="statement not covered" >        User.update({</span>
+            name, username, email
+        }, {
+            where: { id }
+        })
+            .then(<span class="fstat-no" title="function not covered" >re</span>sult =&gt; {
+<span class="cstat-no" title="statement not covered" >                console.log(result)</span>
+<span class="cstat-no" title="statement not covered" >                res.status(200).json(result)</span>
+            })
+            .catch(next)
+    }
+&nbsp;
 }
 &nbsp;
 module.exports = UserController</pre></td></tr></table></pre>
@@ -385,7 +451,11 @@ module.exports = UserController</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
+<<<<<<< HEAD
+                at Sun Mar 22 2020 17:03:58 GMT+0700 (Western Indonesia Time)
+=======
                 at Sun Mar 22 2020 14:50:53 GMT+0700 (Western Indonesia Time)
+>>>>>>> origin
             </div>
         </div>
         <script src="../../prettify.js"></script>
