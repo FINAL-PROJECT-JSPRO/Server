@@ -57,32 +57,32 @@ describe('chapters router test', () => {
         })
     })
 
-    describe('test for get one chpater', () => {
-        beforeEach((done) => {
-            User.create({
-                username: 'budyhartanto',
-                email: 'iniemailbudi@mail.com',
-                password: "inipassword"
-            })
-                .then(user => {
-                    token = sign({
-                        id: user.id,
-                        email: user.email
-                    })
-                    id_user = user.id
-                    done()
-                })
-                .catch(err => done(err))
-        })
-        test('it should be return object and status 200', (done) => {
-            request(app)
-                .get(`/chapters/${id_chapter}`)
-                .set('access_token', token)
-                .end((err, response) => {
-                    expect(err).toBe(null)
-                    expect(response.body).toStrictEqual(expect.any(Object))
-                    done()
-                })
-        })
-    })
+    // describe('test for get one chpater', () => {
+    //     beforeEach((done) => {
+    //         User.create({
+    //             username: 'budyhartanto',
+    //             email: 'iniemailbudi@mail.com',
+    //             password: "inipassword"
+    //         })
+    //             .then(user => {
+    //                 token = sign({
+    //                     id: user.id,
+    //                     email: user.email
+    //                 })
+    //                 id_user = user.id
+    //                 done()
+    //             })
+    //             .catch(err => done(err))
+    //     })
+    //     test('it should be return object and status 200', (done) => {
+    //         request(app)
+    //             .get(`/chapters/${id_chapter}`)
+    //             .set('access_token', token)
+    //             .end((err, response) => {
+    //                 expect(err).toBe(null)
+    //                 expect(response.body).toStrictEqual(expect.any(Object))
+    //                 done()
+    //             })
+    //     })
+    // })
 })
