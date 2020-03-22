@@ -16,6 +16,12 @@ module.exports = (err, req, res, next) => {
         res.status(400).json({
             msg: err.errors[0].message
         })
+    } else if (err.type === 'chapternotfound') {
+        err.status = 404
+        err.msg = "Chapter history not found"
+    } else if (err.type === 'subjectnotfound') {
+        err.status = 404
+        err.msg = "Subject history not found"
     }
 
     if (err.name === "SequelizeValidationError") {
