@@ -3,12 +3,10 @@ const { compare } = require('../helpers/hash')
 const { sign } = require('../helpers/jwt')
 
 class UserController {
-    static register(req, res, next) {
-        // console.log('registering')
-        console.log(req.body)
-        const { name, username, email, password } = req.body
+    static register (req, res, next) {
+        const {name, username, email, password} = req.body
         User.create({
-            name: req.body.name, username, email, password
+            username, email, password, name
         })
             .then(user => {
                 res.status(201).json({
@@ -73,6 +71,7 @@ class UserController {
                     }
                 }
             })
+            .catch(next)
     }
 
     static findOne(req, res, next) {
@@ -98,13 +97,8 @@ class UserController {
         }, {
             where: { id }
         })
-            .then(result => {
-                console.log(result)
-                res.status(200).json(result)
-            })
-            .catch(next)
+        .catch(next)
     }
-
 }
 
 module.exports = UserController
