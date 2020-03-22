@@ -27,7 +27,7 @@ module.exports = {
             .status(200)
             .json({ msg: "Subject status updated successfully" })
         } else {
-          next({ msg: "Subject history not found" })
+          next({ type: "chapternotfound" })
         }
       })
       .catch(next)
