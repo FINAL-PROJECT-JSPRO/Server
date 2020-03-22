@@ -36,7 +36,7 @@ class GoogleController {
       .then(userLogin => {
           // console.log(userLogin)
           let token = sign({ id: userLogin.id, email })
-          console.log('masuk signIn COntroller 3')
+          // console.log('masuk signIn COntroller 3')
           // console.log(token)
           res.status(200).json({
             token

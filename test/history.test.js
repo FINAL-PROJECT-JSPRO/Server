@@ -35,7 +35,7 @@ describe('history routes', () => {
     describe('add history', () => {
         test('test success add history', (done) => {
             request(app)
-                .post('/history')
+                .post('/users/history')
                 .send({
                     ChapterId: 1,
                     status: false
@@ -44,8 +44,8 @@ describe('history routes', () => {
                 .end((err, response) => {
                     expect(err).toBe(null)
                     expect(response.body).toHaveProperty('UserId', expect.any(Number))
-                    expect(response.body).toHaveProperty('ChapterId', expect.any(Number))
-                    expect(response.body).toHaveProperty('status', expect.any(Boolean))
+                    expect(response.body).toHaveProperty('ChapterId', 1)
+                    expect(response.body).toHaveProperty('status', false)
                     expect(response.status).toBe(200)
                     done()
                 })
@@ -60,10 +60,11 @@ describe('history routes', () => {
                 status: false
             })
                 .then(_ => done())
+                .catch(err => done(err))
         })
         test('success update history', (done) => {
             request(app)
-                .put('/history')
+                .put('/users/history')
                 .send({
                     ChapterId: 1,
                     status: true
@@ -76,21 +77,21 @@ describe('history routes', () => {
                     done()
                 })
         })
+    })
 
-        test('data not found when update history', (done) => {
-            request(app)
-                .put('/history')
-                .send({
-                    ChapterId: 6,
-                    status: true
-                })
-                .set('access_token', token)
-                .end((err, response) => {
-                    expect(err).toBe(null)
-                    expect(response.body).toHaveProperty('msg', 'Subject history not found')
-                    expect(response.status).toBe(500)
-                    done()
-                })
-        })
+    test('data not found when update history', (done) => {
+        request(app)
+            .put('/users/history')
+            .send({
+                ChapterId: 6,
+                status: true
+            })
+            .set('access_token', token)
+            .end((err, response) => {
+                expect(err).toBe(null)
+                expect(response.body).toHaveProperty('msg', 'Subject history not found')
+                expect(response.status).toBe(500)
+                done()
+            })
     })
 })

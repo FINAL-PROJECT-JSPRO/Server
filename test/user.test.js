@@ -23,7 +23,7 @@ describe('User Routes', () => {
         describe('Register success', () => {
             test('return new user object and status 201', (done) => {
                 request(app)
-                    .post('/register')
+                    .post('/users/register')
                     .send({
                         username: 'Dummy Register',
                         email: 'register@dummy.com',
@@ -44,7 +44,7 @@ describe('User Routes', () => {
             describe('error for minimum length username', () => {
                 test('return message and status error', (done) => {
                     request(app)
-                        .post('/register')
+                        .post('/users/register')
                         .send({
                             username: 'Dum',
                             email: 'register@dummy.com',
@@ -62,7 +62,7 @@ describe('User Routes', () => {
             describe('error for username empty', () => {
                 test('return message and status error', (done) => {
                     request(app)
-                        .post('/register')
+                        .post('/users/register')
                         .send({
                             username: null,
                             email: 'register@dummy.com',
@@ -81,7 +81,7 @@ describe('User Routes', () => {
             describe('error for username must unique', () => {
                 test('return message and status error', (done) => {
                     request(app)
-                        .post('/register')
+                        .post('/users/register')
                         .send({
                             username: "Dummy Test",
                             email: "dummy@mail.com",
@@ -99,7 +99,7 @@ describe('User Routes', () => {
             describe('error for invalid format email', () => {
                 test('return message and status error', (done) => {
                     request(app)
-                        .post('/register')
+                        .post('/users/register')
                         .send({
                             username: "Dummy Test",
                             email: "dummydummy.com",
@@ -117,7 +117,7 @@ describe('User Routes', () => {
             describe('error for minimum length of email', () => {
                 test('return message and status error', (done) => {
                     request(app)
-                        .post('/register')
+                        .post('/users/register')
                         .send({
                             username: "Dummy Test",
                             email: "y@y.com",
@@ -135,7 +135,7 @@ describe('User Routes', () => {
             describe('error for email cannot be empty', () => {
                 test('return message and status error', (done) => {
                     request(app)
-                        .post('/register')
+                        .post('/users/register')
                         .send({
                             username: "Dummy Test",
                             email: null,
@@ -153,7 +153,7 @@ describe('User Routes', () => {
             describe('error for email must unique', () => {
                 test('return message and status error', (done) => {
                     request(app)
-                        .post('/register')
+                        .post('/users/register')
                         .send({
                             username: "Dummy Test",
                             email: "dummy@dummy.com",
@@ -171,7 +171,7 @@ describe('User Routes', () => {
             describe('error for minimum length of password', () => {
                 test('return message and status error', (done) => {
                     request(app)
-                        .post('/register')
+                        .post('/users/register')
                         .send({
                             username: "Dummy Test",
                             email: "test@dummy.com",
@@ -189,7 +189,7 @@ describe('User Routes', () => {
             describe('error for password cannot be empty', () => {
                 test('return message and status error', (done) => {
                     request(app)
-                        .post('/register')
+                        .post('/users/register')
                         .send({
                             username: "Dummy Test",
                             email: "test@dummy.com",
@@ -211,7 +211,7 @@ describe('User Routes', () => {
         describe('Login success with email', () => {
             test('user success login', (done) => {
                 request(app)
-                    .post('/login')
+                    .post('/users/login')
                     .send({
                         userInput: "dummy@dummy.com",
                         password: "inipassword"
@@ -227,9 +227,9 @@ describe('User Routes', () => {
         })
 
         describe('Login success with username', () => {
-            test('user success login', (done) => {
+            test('user success login with username', (done) => {
                 request(app)
-                    .post('/login')
+                    .post('/users/login')
                     .send({
                         userInput: "Dummy Test",
                         password: "inipassword"
@@ -247,7 +247,7 @@ describe('User Routes', () => {
         describe('Login Failed', () => {
             test('user login failed wrong username/email', (done) => {
                 request(app)
-                    .post('/login')
+                    .post('/users/login')
                     .send({
                         userInput: "Dummy",
                         password: "inipassword"
@@ -262,7 +262,7 @@ describe('User Routes', () => {
 
             test('user login failed wrong password', (done) => {
                 request(app)
-                    .post('/login')
+                    .post('/users/login')
                     .send({
                         userInput: "dummy@dummy.com",
                         password: "sword"
@@ -277,7 +277,7 @@ describe('User Routes', () => {
 
             test('user login failed wrong password', (done) => {
                 request(app)
-                    .post('/login')
+                    .post('/users/login')
                     .send({
                         userInput: "Dummy Test",
                         password: "sword"
