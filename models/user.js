@@ -74,6 +74,25 @@ module.exports = (sequelize, DataTypes) => {
           ChapterId: 1,
           status: false
         })
+
+        const UserSubject = sequelize.models.UserSubject
+        // UserSubject.create({
+        //   UserId: user.id,
+        //   SubjectId: 1,
+        //   status: 'actives'
+        // })
+
+        const allSubject = []
+        for (let i = 1; i <= 9; i++) {
+          const status = i === 1 ? 'active' : 'locked'
+          const subject = {
+            UserId: user.id,
+            SubjectId: i,
+            status
+          }
+          allSubject.push(subject)
+        }
+        UserSubject.bulkCreate(allSubject)
       }
     }
   });

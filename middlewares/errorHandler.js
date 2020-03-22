@@ -12,6 +12,12 @@ module.exports = (err, req, res, next) => {
     } else if (err.type === 'codeError') {
         err.status = 400
         err.msg = "Code error"
+    } else if (err.type === 'chapternotfound') {
+        err.status = 404
+        err.msg = "Chapter history not found"
+    } else if (err.type === 'subjectnotfound') {
+        err.status = 404
+        err.msg = "Subject history not found"
     }
 
     if (err.name === "SequelizeValidationError") {

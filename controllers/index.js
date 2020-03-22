@@ -6,6 +6,7 @@ const levelController = require('./levelController')
 const historyController = require('./historyController')
 const codeController = require('./codeController')
 const googleController = require('./googleController')
+const userSubjectController = require('./userSubjectController')
 
 module.exports = {
   userController,
@@ -15,4 +16,6 @@ module.exports = {
   levelController,
   historyController,
   googleController,
-  codeController }
+  codeController,
+  userSubjectController
+}
