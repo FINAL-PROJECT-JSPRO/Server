@@ -1,9 +1,9 @@
-const { UserSubject } = require('../models')
+const { UserSubject, Subject } = require('../models')
 
 module.exports = {
   getAllUserSubject(req, res, next) {
     const UserId = req.currentUserId
-    UserSubject.findAll({ where: { UserId } })
+    UserSubject.findAll({ where: { UserId }, include: Subject })
       .then(allSubjects => {
         const unlocked = allSubjects.filter(subject => subject.status === 'unlocked')
         const active = allSubjects.filter(subject => subject.status === 'active')
