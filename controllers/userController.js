@@ -9,12 +9,16 @@ class UserController {
             username, email, password, name
         })
             .then(user => {
-                res.status(201).json({
-                    name: user.name,
-                    username: user.username,
-                    email: user.email,
-                    password: user.password
+                const token = sign({
+                    id: user.id,
+                    email: user.email
                 })
+                res
+                    .status(200)
+                    .json({
+                        msg: "Register Success",
+                        token
+                    })
             })
             .catch(next)
     }
