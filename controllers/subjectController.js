@@ -1,23 +1,12 @@
-const { Chapter } = require('../models')
+const { Subject } = require('../models')
 
 module.exports = {
-  getAllChapter(req, res, next) {
-    Chapter.findAll()
-      .then(chapters => {
+  getAllSubject(req, res, next) {
+    Subject.findAll()
+      .then(subjects => {
         res
           .status(200)
-          .json(chapters)
-      })
-      .catch(next)
-  },
-
-  getOneChapter(req, res, next) {
-    const { id } = req.params
-    Chapter.findOne({ where: { id } })
-      .then(chapter => {
-        res
-          .status(200)
-          .json(chapter)
+          .json(subjects)
       })
       .catch(next)
   }
