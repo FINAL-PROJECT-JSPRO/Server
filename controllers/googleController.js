@@ -12,10 +12,8 @@ class GoogleController {
       audience: process.env.CLIENT_ID
     })
       .then(data => {
-          console.log(data)
-          console.log('masuk signIn Controller')
           email = data.payload.email
-          username = data.payload.email
+          username = data.payload.name
           return User.findOne({
             where : {
               email
@@ -23,7 +21,6 @@ class GoogleController {
           })
       })
       .then(user => {
-          console.log(user, 'masuk signIn Controller 2')
           if(!user) {
             let newUser = {
                 username, email, password: process.env.SECRET_PASSWORD
@@ -34,10 +31,7 @@ class GoogleController {
           }
       })
       .then(userLogin => {
-          // console.log(userLogin)
           let token = sign({ id: userLogin.id, email })
-          // console.log('masuk signIn COntroller 3')
-          // console.log(token)
           res.status(200).json({
             token
           })
