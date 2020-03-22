@@ -8,6 +8,6 @@ router.post('/verify', authentication, userController.findOne)
 router.post('/gSignIn', googleController.signInGoogle)
 router.post('/history', authentication, historyController.addHistory)
 router.put('/history', authentication, historyController.updateHistory)
-router.put('/profile', authentication, userController.editProfile)
+router.put('/', authentication, userController.editProfile)
 
 module.exports = router
