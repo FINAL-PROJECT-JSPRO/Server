@@ -6,6 +6,12 @@ module.exports = (err, req, res, next) => {
     } else if (err.type === 'banned') {
         err.status = 403
         err.msg = "Sorry, your account has been banned"
+    } else if (err.type === 'wronganswer') {
+        err.status = 400
+        err.msg = "Wrong answer, please try again"
+    } else if (err.type === 'codeError') {
+        err.status = 400
+        err.msg = "Code error"
     }
 
     if (err.name === "SequelizeValidationError") {
@@ -24,7 +30,8 @@ module.exports = (err, req, res, next) => {
         })
     } else {
         res.status(err.status || 500).json({
-            msg: err.msg || "Internal Server Error"
+            msg: err.msg || "Internal Server Error",
+            error: err.error
         })
     }
 }
