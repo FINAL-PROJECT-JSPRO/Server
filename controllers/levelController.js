@@ -6,6 +6,6 @@ module.exports = {
     .then(levels => {
       res.status(200).json(levels)
     })
-    .catch(err => next(err))
+    .catch(next)
   }
 }

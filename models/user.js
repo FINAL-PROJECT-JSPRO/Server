@@ -10,9 +10,13 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   User.init({
+    name: {
+      type: DataTypes.STRING
+    },
     username: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true,
       validate: {
         len: {
           args: [6],
@@ -21,18 +25,13 @@ module.exports = (sequelize, DataTypes) => {
         notNull: {
           args: true,
           msg: "Username cannot be empty"
-        },
-        isUnique(username) {
-          return User.findOne({ where: { username } })
-            .then(data => {
-              if (data) throw new Error('Username already registered')
-            })
         }
       }
     },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true,
       validate: {
         isEmail: {
           args: true,
@@ -45,12 +44,6 @@ module.exports = (sequelize, DataTypes) => {
         notNull: {
           args: true,
           msg: "Email cannot be empty"
-        },
-        isUnique(email) {
-          return User.findOne({ where: { email } })
-            .then(data => {
-              if (data) throw new Error('Email already registered')
-            })
         }
       }
     },
