@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1584895817970" clover="3.2.0">
-  <project timestamp="1584895817970" name="All files">
-    <metrics statements="290" coveredstatements="255" conditionals="59" coveredconditionals="44" methods="59" coveredmethods="51" elements="408" coveredelements="350" complexity="0" loc="290" ncloc="290" packages="7" files="31" classes="31"/>
+<coverage generated="1584897616829" clover="3.2.0">
+  <project timestamp="1584897616829" name="All files">
+    <metrics statements="289" coveredstatements="257" conditionals="59" coveredconditionals="44" methods="59" coveredmethods="53" elements="407" coveredelements="354" complexity="0" loc="289" ncloc="289" packages="6" files="30" classes="30"/>
     <package name="Server">
       <metrics statements="14" coveredstatements="14" conditionals="6" coveredconditionals="4" methods="0" coveredmethods="0"/>
       <file name="app.js" path="/home/dk/hacktiv8/FINAL-PROJECT-JS-PRO/Server/app.js">
@@ -23,16 +23,16 @@
       </file>
     </package>
     <package name="Server.controllers">
-      <metrics statements="109" coveredstatements="82" conditionals="20" coveredconditionals="13" methods="31" coveredmethods="23"/>
+      <metrics statements="109" coveredstatements="85" conditionals="20" coveredconditionals="13" methods="31" coveredmethods="25"/>
       <file name="chapterController.js" path="/home/dk/hacktiv8/FINAL-PROJECT-JS-PRO/Server/controllers/chapterController.js">
-        <metrics statements="7" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="2"/>
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
         <line num="1" count="7" type="stmt"/>
         <line num="3" count="7" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
         <line num="7" count="1" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
       </file>
       <file name="codeController.js" path="/home/dk/hacktiv8/FINAL-PROJECT-JS-PRO/Server/controllers/codeController.js">
         <metrics statements="20" coveredstatements="6" conditionals="4" coveredconditionals="0" methods="3" coveredmethods="1"/>
@@ -161,13 +161,6 @@
         <line num="107" count="7" type="stmt"/>
       </file>
     </package>
-    <package name="Server.dataForSeeder">
-      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="chapters.js" path="/home/dk/hacktiv8/FINAL-PROJECT-JS-PRO/Server/dataForSeeder/chapters.js">
-        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="1" type="stmt"/>
-      </file>
-    </package>
     <package name="Server.helpers">
       <metrics statements="19" coveredstatements="17" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
       <file name="executeCode.js" path="/home/dk/hacktiv8/FINAL-PROJECT-JS-PRO/Server/helpers/executeCode.js">
@@ -186,8 +179,8 @@
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="1" count="7" type="stmt"/>
         <line num="3" count="7" type="stmt"/>
-        <line num="5" count="28" type="stmt"/>
-        <line num="6" count="28" type="stmt"/>
+        <line num="5" count="30" type="stmt"/>
+        <line num="6" count="30" type="stmt"/>
         <line num="10" count="4" type="stmt"/>
       </file>
       <file name="jwt.js" path="/home/dk/hacktiv8/FINAL-PROJECT-JS-PRO/Server/helpers/jwt.js">
@@ -195,8 +188,8 @@
         <line num="1" count="7" type="stmt"/>
         <line num="2" count="7" type="stmt"/>
         <line num="4" count="7" type="stmt"/>
-        <line num="6" count="27" type="stmt"/>
-        <line num="10" count="9" type="stmt"/>
+        <line num="6" count="28" type="stmt"/>
+        <line num="10" count="10" type="stmt"/>
       </file>
     </package>
     <package name="Server.middlewares">
@@ -206,16 +199,16 @@
         <line num="1" count="7" type="stmt"/>
         <line num="2" count="7" type="stmt"/>
         <line num="4" count="7" type="stmt"/>
-        <line num="5" count="10" type="stmt"/>
-        <line num="6" count="10" type="cond" truecount="2" falsecount="0"/>
-        <line num="7" count="9" type="stmt"/>
-        <line num="8" count="9" type="stmt"/>
-        <line num="9" count="8" type="cond" truecount="1" falsecount="1"/>
-        <line num="10" count="8" type="stmt"/>
-        <line num="12" count="8" type="cond" truecount="2" falsecount="0"/>
-        <line num="13" count="7" type="stmt"/>
-        <line num="14" count="7" type="stmt"/>
-        <line num="15" count="7" type="stmt"/>
+        <line num="5" count="11" type="stmt"/>
+        <line num="6" count="11" type="cond" truecount="2" falsecount="0"/>
+        <line num="7" count="10" type="stmt"/>
+        <line num="8" count="10" type="stmt"/>
+        <line num="9" count="9" type="cond" truecount="1" falsecount="1"/>
+        <line num="10" count="9" type="stmt"/>
+        <line num="12" count="9" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="8" type="stmt"/>
+        <line num="14" count="8" type="stmt"/>
+        <line num="15" count="8" type="stmt"/>
         <line num="17" count="1" type="stmt"/>
         <line num="21" count="0" type="stmt"/>
         <line num="25" count="1" type="stmt"/>
@@ -318,9 +311,9 @@
         <line num="8" count="7" type="stmt"/>
         <line num="9" count="7" type="stmt"/>
         <line num="12" count="7" type="stmt"/>
-        <line num="68" count="28" type="stmt"/>
-        <line num="71" count="26" type="stmt"/>
-        <line num="72" count="26" type="stmt"/>
+        <line num="68" count="30" type="stmt"/>
+        <line num="71" count="27" type="stmt"/>
+        <line num="72" count="27" type="stmt"/>
         <line num="80" count="7" type="stmt"/>
       </file>
       <file name="useranswer.js" path="/home/dk/hacktiv8/FINAL-PROJECT-JS-PRO/Server/models/useranswer.js">
