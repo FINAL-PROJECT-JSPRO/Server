@@ -1,5 +1,5 @@
 module.exports = (err, req, res, next) => {
-    console.log(err)
+    // console.log(err, '+{}+{}+{+{}+{}+{{}+{{{+{')
     if (err.type === 'notlogin') {
         err.status = 403
         err.msg = "This page can only be accessed by registered users"
@@ -12,6 +12,10 @@ module.exports = (err, req, res, next) => {
     } else if (err.type === 'codeError') {
         err.status = 400
         err.msg = "Code error"
+    } else if (err.name === 'SequelizeUniqueConstraintError') {
+        res.status(400).json({
+            msg: err.errors[0].message
+        })
     }
 
     if (err.name === "SequelizeValidationError") {
