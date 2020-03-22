@@ -4,13 +4,13 @@ const { sign } = require('../helpers/jwt')
 
 class UserController {
     static register (req, res, next) {
-    // console.log('registering')
-        const {username, email, password} = req.body
+        const {name, username, email, password} = req.body
         User.create({
-            username, email, password
+            username, email, password, name
         })
             .then(user => {
                 res.status(201).json({
+                    name: user.name,
                     username: user.username,
                     email: user.email,
                     password: user.password
@@ -20,7 +20,7 @@ class UserController {
     }
 
     static login (req, res, next) {
-        // console.log(req.body, '===')
+        console.log(req.body, '===')
         const { userInput, password } = req.body
         const promises = [
             User.findOne({ where: { email: userInput } }),
@@ -71,13 +71,14 @@ class UserController {
                     }
                 }
             })
+            .catch(next)
     }
 
     static findOne (req, res, next) {
         const id = req.currentUserId
         User.findOne({
             include: [History],
-            attributes: ['username','email'],
+            attributes: ['username','email', 'name'],
             where: {
                 id
             },
@@ -85,7 +86,22 @@ class UserController {
         .then(user => {
             res.status(200).json(user)
         })
-        .catch(err =>  next(err))
+        .catch(next)
+    }
+
+    static editProfile (req, res, next) {
+        const { name, username, email } = req.body
+        const id = req.currentUserId
+        User.update({
+            name, username, email
+        }, {
+            where: { id }
+        })
+            .then(result => {
+                console.log(result)
+                res.status(200).json(result)
+            })
+            .catch(next)
     }
 }
 
