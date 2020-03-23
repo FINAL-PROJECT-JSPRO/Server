@@ -45,6 +45,7 @@ class GithubController {
   }
 
   static login(req, res, next) {
+    console.log(req.body)
     const { payload } = req.body
     User.findOne({
       where: {
@@ -58,7 +59,8 @@ class GithubController {
         return User.create({
           username: payload.login,
           email: payload.email,
-          name: payload.name
+          name: payload.name,
+          password: process.env.SECRET_PASSWORD_GITHUB
         })
       }
     })
