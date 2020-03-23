@@ -6,7 +6,10 @@ const {
   thirdParams, thirdAnswer,
   fourthParams, fourthAnswer,
   fifthParams, fifthAnswer,
-  sixthParams, sixthAnswer
+  sixthParams, sixthAnswer,
+  seventhParams, seventhAnswer,
+  eightParams, eightAnswer,
+  ninthParams, ninthAnswer
 } = require('../helpers/testCase')
 
 module.exports = {
@@ -48,6 +51,18 @@ module.exports = {
       case "6":
         params = sixthParams
         answers = sixthAnswer
+        break
+      case "7":
+        params = seventhParams
+        answers = seventhAnswer
+        break
+      case "8":
+        params = eightParams
+        answers = eightAnswer
+        break
+      case "9":
+        params = ninthParams
+        answers = ninthAnswer
         break
     }
 

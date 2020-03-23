@@ -48,6 +48,7 @@ module.exports =  {
       result.success = vm.runInNewContext(str)
       result.answerType = typeof result.success
     } catch (error) {
+      console.log(error)
         result.error.name = error.name
         result.error.message = error.message
     }
