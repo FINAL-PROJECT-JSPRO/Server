@@ -58,25 +58,6 @@
 // console.log(tailSwap(["HACK:SIA", "VA:DO", "IN:TE", "NE:TI"]))
 
 
-// console.log((function breakChocolate (n,m) {
-//   return n * m - 1 <= 0 ? 0 : n * m -1
-// })(2,3))
-
-// console.log((breakChocolate = (n,m) => n * m - 1 <= 0 ? 0 : n * m -1)(2,3))
-
-// console.log((tailSwap = function tailSwap (arr) {
-//   let result = []
-//   let newArr = arr
-//   .map(string => string.split(':'))
-  
-//   for (let i = 0; i < newArr.length; ++i) {
-//     result.push(newArr[i][0] + ':' + newArr[newArr.length -1 -i][1]);
-//   }
-
-//   return result
-// })(["HACK:SIA","VA:DO","IN:TE","NE:TI"]))
-
-
 // Subject 6
 // function returnSpecifics(obj) {
 //   let [arr1,arr2] = [[],[]]
