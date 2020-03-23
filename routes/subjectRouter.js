@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const { subjectController } = require('../controllers')
-const authentication = require('../middlewares/authentication')
+// const authentication = require('../middlewares/authentication')
 
-router.get('/', authentication, subjectController.getAllSubject)
+router.get('/', subjectController.getAllSubject)
 
 module.exports = router
