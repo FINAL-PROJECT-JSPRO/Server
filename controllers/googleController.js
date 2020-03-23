@@ -7,6 +7,7 @@ class GoogleController {
   static signInGoogle (req, res, next) {
     let email
     let username
+    // console.log(req)
     client.verifyIdToken({
       idToken: req.headers.idtoken,
       audience: process.env.CLIENT_ID
