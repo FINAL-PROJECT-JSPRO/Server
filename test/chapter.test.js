@@ -64,4 +64,48 @@ describe('chapters router test', () => {
                 })
         })
     })
+
+    describe('failed test for get all chapter', () => {
+        test('user not registered', (done) => {
+            request(app)
+                .get('/chapters')
+                .end((err, response) => {
+                    expect(err).toBe(null)
+                    expect(response.body).toHaveProperty('msg', 'This page can only be accessed by registered users')
+                    expect(response.status).toBe(403)
+                    done()
+                })
+        })
+
+        test('error for token', (done) => {
+            request(app)
+                .get('/chapters')
+                .set('access_token', 'errortoken')
+                .end((err, response) => {
+                    expect(err).toBe(null)
+                    expect(response.body).toHaveProperty('msg', expect.any(String))
+                    expect(response.status).toBe(403)
+                    done()
+                })
+        })
+
+        describe('error for user account has been banned', () => {
+            beforeEach((done) => {
+                User.destroy({ where: { id: id_user } })
+                    .then(_ => done())
+                    .catch(err => done(err))
+            })
+            test('eror for user account banned', (done) => {
+                request(app)
+                    .get('/chapters')
+                    .set('access_token', token)
+                    .end((err, response) => {
+                        expect(err).toBe(null)
+                        expect(response.body).toHaveProperty('msg', "Sorry, your account has been banned")
+                        expect(response.status).toBe(403)
+                        done()
+                    })
+            })
+        })
+    })
 })

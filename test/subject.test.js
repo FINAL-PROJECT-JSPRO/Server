@@ -44,48 +44,4 @@ describe('subject routes', () => {
                 })
         })
     })
-
-    describe('failed test for get all subjects', () => {
-        test('user not registered', (done) => {
-            request(app)
-                .get('/subjects')
-                .end((err, response) => {
-                    expect(err).toBe(null)
-                    expect(response.body).toHaveProperty('msg', 'This page can only be accessed by registered users')
-                    expect(response.status).toBe(403)
-                    done()
-                })
-        })
-
-        test('error for token', (done) => {
-            request(app)
-                .get('/subjects')
-                .set('access_token', 'errortoken')
-                .end((err, response) => {
-                    expect(err).toBe(null)
-                    expect(response.body).toHaveProperty('msg', expect.any(String))
-                    expect(response.status).toBe(403)
-                    done()
-                })
-        })
-
-        describe('error for user account has been banned', () => {
-            beforeEach((done) => {
-                User.destroy({ where: { id: id_user } })
-                    .then(_ => done())
-                    .catch(err => done(err))
-            })
-            test('eror for user account banned', (done) => {
-                request(app)
-                    .get('/subjects')
-                    .set('access_token', token)
-                    .end((err, response) => {
-                        expect(err).toBe(null)
-                        expect(response.body).toHaveProperty('msg', "Sorry, your account has been banned")
-                        expect(response.status).toBe(403)
-                        done()
-                    })
-            })
-        })
-    })
 })
