@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1584931510672" clover="3.2.0">
-  <project timestamp="1584931510672" name="All files">
-    <metrics statements="323" coveredstatements="308" conditionals="67" coveredconditionals="58" methods="65" coveredmethods="59" elements="455" coveredelements="425" complexity="0" loc="323" ncloc="323" packages="6" files="32" classes="32"/>
+<coverage generated="1584942700236" clover="3.2.0">
+  <project timestamp="1584942700237" name="All files">
+    <metrics statements="340" coveredstatements="316" conditionals="67" coveredconditionals="58" methods="67" coveredmethods="61" elements="474" coveredelements="435" complexity="0" loc="340" ncloc="340" packages="6" files="33" classes="33"/>
     <package name="Server">
       <metrics statements="14" coveredstatements="14" conditionals="6" coveredconditionals="4" methods="0" coveredmethods="0"/>
       <file name="app.js" path="/home/dk/hacktiv8/FINAL-PROJECT-JS-PRO/Server/app.js">
@@ -23,16 +23,16 @@
       </file>
     </package>
     <package name="Server.controllers">
-      <metrics statements="123" coveredstatements="110" conditionals="22" coveredconditionals="19" methods="35" coveredmethods="29"/>
+      <metrics statements="138" coveredstatements="116" conditionals="22" coveredconditionals="19" methods="37" coveredmethods="31"/>
       <file name="chapterController.js" path="/home/dk/hacktiv8/FINAL-PROJECT-JS-PRO/Server/controllers/chapterController.js">
-        <metrics statements="7" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="2"/>
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
         <line num="1" count="7" type="stmt"/>
         <line num="3" count="7" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
         <line num="7" count="1" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
       </file>
       <file name="codeController.js" path="/home/dk/hacktiv8/FINAL-PROJECT-JS-PRO/Server/controllers/codeController.js">
         <metrics statements="20" coveredstatements="20" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
@@ -66,6 +66,23 @@
         <line num="15" count="1" type="stmt"/>
         <line num="16" count="1" type="stmt"/>
         <line num="18" count="1" type="stmt"/>
+      </file>
+      <file name="githubController.js" path="/home/dk/hacktiv8/FINAL-PROJECT-JS-PRO/Server/controllers/githubController.js">
+        <metrics statements="14" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="1" count="7" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="44" count="7" type="stmt"/>
       </file>
       <file name="googleController.js" path="/home/dk/hacktiv8/FINAL-PROJECT-JS-PRO/Server/controllers/googleController.js">
         <metrics statements="15" coveredstatements="5" conditionals="2" coveredconditionals="0" methods="4" coveredmethods="0"/>
@@ -101,7 +118,7 @@
         <line num="30" count="1" type="stmt"/>
       </file>
       <file name="index.js" path="/home/dk/hacktiv8/FINAL-PROJECT-JS-PRO/Server/controllers/index.js">
-        <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="7" type="stmt"/>
         <line num="2" count="7" type="stmt"/>
         <line num="3" count="7" type="stmt"/>
@@ -111,7 +128,8 @@
         <line num="7" count="7" type="stmt"/>
         <line num="8" count="7" type="stmt"/>
         <line num="9" count="7" type="stmt"/>
-        <line num="11" count="7" type="stmt"/>
+        <line num="10" count="7" type="stmt"/>
+        <line num="12" count="7" type="stmt"/>
       </file>
       <file name="levelController.js" path="/home/dk/hacktiv8/FINAL-PROJECT-JS-PRO/Server/controllers/levelController.js">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
@@ -168,14 +186,14 @@
         <line num="3" count="7" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
         <line num="6" count="1" type="stmt"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="16" count="2" type="stmt"/>
-        <line num="17" count="2" type="stmt"/>
-        <line num="18" count="2" type="stmt"/>
-        <line num="19" count="2" type="stmt"/>
-        <line num="23" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="24" count="1" type="stmt"/>
-        <line num="28" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="29" count="2" type="stmt"/>
+        <line num="30" count="2" type="stmt"/>
+        <line num="31" count="2" type="stmt"/>
+        <line num="32" count="2" type="stmt"/>
+        <line num="36" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
       </file>
     </package>
     <package name="Server.helpers">
@@ -206,7 +224,7 @@
         <line num="2" count="7" type="stmt"/>
         <line num="4" count="7" type="stmt"/>
         <line num="6" count="12" type="stmt"/>
-        <line num="10" count="12" type="stmt"/>
+        <line num="10" count="13" type="stmt"/>
       </file>
     </package>
     <package name="Server.middlewares">
@@ -216,16 +234,16 @@
         <line num="1" count="7" type="stmt"/>
         <line num="2" count="7" type="stmt"/>
         <line num="4" count="7" type="stmt"/>
-        <line num="5" count="13" type="stmt"/>
-        <line num="6" count="13" type="cond" truecount="2" falsecount="0"/>
-        <line num="7" count="12" type="stmt"/>
-        <line num="8" count="12" type="stmt"/>
-        <line num="9" count="11" type="cond" truecount="1" falsecount="1"/>
-        <line num="10" count="11" type="stmt"/>
-        <line num="12" count="11" type="cond" truecount="2" falsecount="0"/>
-        <line num="13" count="10" type="stmt"/>
-        <line num="14" count="10" type="stmt"/>
-        <line num="15" count="10" type="stmt"/>
+        <line num="5" count="14" type="stmt"/>
+        <line num="6" count="14" type="cond" truecount="2" falsecount="0"/>
+        <line num="7" count="13" type="stmt"/>
+        <line num="8" count="13" type="stmt"/>
+        <line num="9" count="12" type="cond" truecount="1" falsecount="1"/>
+        <line num="10" count="12" type="stmt"/>
+        <line num="12" count="12" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="11" type="stmt"/>
+        <line num="14" count="11" type="stmt"/>
+        <line num="15" count="11" type="stmt"/>
         <line num="17" count="1" type="stmt"/>
         <line num="21" count="0" type="stmt"/>
         <line num="25" count="1" type="stmt"/>
@@ -363,7 +381,7 @@
       </file>
     </package>
     <package name="Server.routes">
-      <metrics statements="53" coveredstatements="53" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <metrics statements="55" coveredstatements="55" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="chapterRouter.js" path="/home/dk/hacktiv8/FINAL-PROJECT-JS-PRO/Server/routes/chapterRouter.js">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="7" type="stmt"/>
@@ -423,20 +441,22 @@
         <line num="7" count="7" type="stmt"/>
       </file>
       <file name="userRouter.js" path="/home/dk/hacktiv8/FINAL-PROJECT-JS-PRO/Server/routes/userRouter.js">
-        <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <metrics statements="15" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="7" type="stmt"/>
-        <line num="2" count="7" type="stmt"/>
-        <line num="3" count="7" type="stmt"/>
-        <line num="5" count="7" type="stmt"/>
-        <line num="6" count="7" type="stmt"/>
-        <line num="7" count="7" type="stmt"/>
         <line num="8" count="7" type="stmt"/>
         <line num="9" count="7" type="stmt"/>
-        <line num="10" count="7" type="stmt"/>
         <line num="11" count="7" type="stmt"/>
         <line num="12" count="7" type="stmt"/>
         <line num="13" count="7" type="stmt"/>
+        <line num="14" count="7" type="stmt"/>
+        <line num="15" count="7" type="stmt"/>
         <line num="16" count="7" type="stmt"/>
+        <line num="17" count="7" type="stmt"/>
+        <line num="18" count="7" type="stmt"/>
+        <line num="19" count="7" type="stmt"/>
+        <line num="20" count="7" type="stmt"/>
+        <line num="21" count="7" type="stmt"/>
+        <line num="24" count="7" type="stmt"/>
       </file>
     </package>
   </project>
