@@ -11,7 +11,8 @@ module.exports = (sequelize, DataTypes) => {
   Chapter.init({
     title: DataTypes.STRING,
     body: DataTypes.TEXT,
-    SubjectId: DataTypes.INTEGER
+    SubjectId: DataTypes.INTEGER,
+    isLast: DataTypes.BOOLEAN
   }, { sequelize });
   return Chapter;
 };
