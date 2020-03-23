@@ -41,7 +41,7 @@ module.exports = [
     SubjectId: 4
   },
   {
-    question:`<p class="examBody">You'll be given a list of two strings, and each will contain exactly one colon (<code>":"</code>) in the middle (but not at beginning or end). The length of the strings, before and after the colon, are random.</p><p class="examBody">Your job is to return a list of two strings (in the same order as the original list), but with the characters after each colon swapped.</p><p class="examBody">For example:</p>
+    question:`<h1 class="examTitle">Tail Swap!</h1><p class="examBody">You'll be given a list of two strings, and each will contain exactly one colon (<code>":"</code>) in the middle (but not at beginning or end). The length of the strings, before and after the colon, are random.</p><p class="examBody">Your job is to return a list of two strings (in the same order as the original list), but with the characters after each colon swapped.</p><p class="examBody">For example:</p>
 <pre class="examPre"><code class="examPre">["abc:123", "cde:456"]  --&gt;  ["abc:456", "cde:123"]
   ["a:12345", "777:xyz"]  --&gt;  ["a:xyz", "777:12345"]</code></pre>`,
     skeleton:
@@ -51,31 +51,32 @@ module.exports = [
     SubjectId: 5
   },
   {
-    question:``,
+    question:`<h1 class="examTitle">Return Specifics from an Object!</h1><p class="examBody">Create a function that returns the values of an object which are numbers, and the keys of objects which have methods as values.</p><ul class=examUnorderedList><li class="examList">array should return numbers first then all the method names in the order they are in the object</li><li class="examList">strings, booleans, arrays should be ignored. </li><li class="examList">if the object is empty, then the array should return the following string: "The Object is Empty"</li></ul><p class="examBody">Example: </p>
+<pre class="examPre"><code class="examCode">returnSpecifics({ a: 1, b: 'str', c: 2, d: true, e: a => a, f: 3 })</code></pre>
+<p class="examBody">This would return <code class="examCode">[1,2,3,'e']</code></p>`,
     skeleton:
-``,
-    answer: '8',
+`function returnSpecifics(obj) {
+
+  return
+}`,
     SubjectId: 6
   },
   {
     question:``,
     skeleton:
 ``,
-    answer: '8',
     SubjectId: 7
   },
   {
     question:``,
     skeleton:
 ``,
-    answer: '8',
     SubjectId: 8
   },
   {
     question:``,
     skeleton:
 ``,
-    answer: '8',
     SubjectId: 9
   }
 ]
