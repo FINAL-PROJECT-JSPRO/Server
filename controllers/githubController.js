@@ -1,7 +1,7 @@
 const axios = require('axios')
 const { User } = require('../models')
 const { sign } = require('../helpers/jwt')
-const Buffer = require('buffer')
+const { Buffer } = require('buffer')
 
 class GithubController {
   static async getToken (req, res, next) {
