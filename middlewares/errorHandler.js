@@ -1,5 +1,6 @@
 module.exports = (err, req, res, next) => {
     // console.log(err, '+{}+{}+{+{}+{}+{{}+{{{+{')
+    console.log(err.message)
     if (err.type === 'notlogin') {
         err.status = 403
         err.msg = "This page can only be accessed by registered users"
@@ -38,6 +39,20 @@ module.exports = (err, req, res, next) => {
         res.status(403).json({
             msg: err.message
         })
+    } else if (err.name === 'SyntaxError') {
+        res
+            .status(403)
+            .json({
+                name: err.name,
+                msg: err.message
+            })
+    } else if (err.name === 'Error') {
+        res
+            .status(403)
+            .json({
+                name: err.name,
+                msg: err.message
+            })
     } else {
         res.status(err.status || 500).json({
             msg: err.msg || "Internal Server Error",

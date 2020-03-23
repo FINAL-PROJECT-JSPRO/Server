@@ -11,7 +11,7 @@ class GoogleController {
       idToken: req.headers.idtoken,
       audience: process.env.CLIENT_ID
     })
-      .then(data => {
+    .then(data => {
           email = data.payload.email
           username = data.payload.name
           return User.findOne({
