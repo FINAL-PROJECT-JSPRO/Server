@@ -1,5 +1,10 @@
 const router = require('express').Router()
-const { historyController, userController, googleController, userSubjectController } = require('../controllers')
+const {
+  historyController,
+  userController,
+  googleController,
+  userSubjectController
+} = require('../controllers')
 const authentication = require('../middlewares/authentication')
 
 router.post('/login', userController.login)

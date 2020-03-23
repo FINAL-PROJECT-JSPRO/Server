@@ -1,11 +1,23 @@
-const { UserSubject, Subject } = require('../models')
+const { UserSubject, Subject, Chapter, History } = require('../models')
 
 module.exports = {
   getAllUserSubject(req, res, next) {
     const UserId = req.currentUserId
-    UserSubject.findAll({ where: { UserId }, include: Subject })
+    UserSubject.findAll({
+      where: { UserId },
+      include: [{
+        model: Subject,
+        include: [{
+          model: Chapter,
+          include: [{
+            required: false,
+            model: History,
+            where: { UserId }
+          }]
+        }]
+      }]
+    })
       .then(subjects => {
-
         res
           .status(200)
           .json(subjects)

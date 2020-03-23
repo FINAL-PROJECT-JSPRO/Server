@@ -19,8 +19,12 @@
   },
   "homepage": "https://github.com/FINAL-PROJECT-JSPRO/Server#readme",
   "dependencies": {
+<<<<<<< HEAD
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.0",
+=======
+    "axios": "^0.19.2",
+>>>>>>> development
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
