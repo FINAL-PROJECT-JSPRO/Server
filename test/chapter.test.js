@@ -9,7 +9,7 @@ let id_user
 let id_chapter
 
 describe('chapters router test', () => {
-    beforeEach((done) => {
+    beforeAll((done) => {
         User.create({
             username: 'edytansil2222',
             email: 'edytansil2222@mail.com',
@@ -26,7 +26,7 @@ describe('chapters router test', () => {
             .catch(err => done(err))
     })
 
-    beforeEach((done) => {
+    beforeAll((done) => {
         Chapter.create({
             title: 'contoh title',
             body: 'contoh body',
@@ -36,11 +36,6 @@ describe('chapters router test', () => {
                 id_chapter = result.id
                 done()
             })
-            .catch(err => done(err))
-    })
-    afterEach((done) => {
-        queryInterface.bulkDelete('Chapters', {})
-            .then(_ => done())
             .catch(err => done(err))
     })
 
@@ -57,32 +52,16 @@ describe('chapters router test', () => {
         })
     })
 
-    // describe('test for get one chpater', () => {
-    //     beforeEach((done) => {
-    //         User.create({
-    //             username: 'budyhartanto',
-    //             email: 'iniemailbudi@mail.com',
-    //             password: "inipassword"
-    //         })
-    //             .then(user => {
-    //                 token = sign({
-    //                     id: user.id,
-    //                     email: user.email
-    //                 })
-    //                 id_user = user.id
-    //                 done()
-    //             })
-    //             .catch(err => done(err))
-    //     })
-    //     test('it should be return object and status 200', (done) => {
-    //         request(app)
-    //             .get(`/chapters/${id_chapter}`)
-    //             .set('access_token', token)
-    //             .end((err, response) => {
-    //                 expect(err).toBe(null)
-    //                 expect(response.body).toStrictEqual(expect.any(Object))
-    //                 done()
-    //             })
-    //     })
-    // })
+    describe('test for get one chpater', () => {
+        test('it should be return object and status 200', (done) => {
+            request(app)
+                .get(`/chapters/${id_chapter}`)
+                .set('access_token', token)
+                .end((err, response) => {
+                    expect(err).toBe(null)
+                    expect(response.body).toStrictEqual(expect.any(Object))
+                    done()
+                })
+        })
+    })
 })
