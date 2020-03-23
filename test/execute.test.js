@@ -170,6 +170,80 @@ describe('test for execute code', () => {
                 })
         })
 
+        test('success answer case nomer 7', (done) => {
+            request(app)
+                .post(`/execute/exam/7`)
+                .send({
+                    code:`
+                    function transform(source, target) {
+                        var result = [source];
+                        for (var i = 0; i <= source.length; i++) {
+                            if (source[i] !== target[i]) {
+                                var newStr = source.replace(source.slice(0, i + 1), target.slice(0, i + 1)); 
+                                result.push(newStr);
+                            }
+                        }
+                        return result;
+                    }
+                    `
+                })
+                .end((err, response) => {
+                    expect(err).toBe(null)
+                    expect(response.body).toHaveProperty('msg', 'Your answer is correct')
+                    expect(response.status).toBe(200)
+                    done()
+                })
+        })
+
+        test('success answer case nomer 8', (done) => {
+            request(app)
+                .post(`/execute/exam/8`)
+                .send({
+                    code:`
+                    function simpleClass(word) {
+                      let MyNamespace = {}
+
+                      MyNamespace.MyClass = class {
+                        constructor(arg) {
+                          this.arg = arg
+                        }
+                        
+                        sayWord() {
+                          return this.arg
+                        }
+                      }
+
+                      const myObject = new MyNamespace.MyClass(word);
+                      return myObject.sayWord()
+                    }
+                    `
+                })
+                .end((err, response) => {
+                    expect(err).toBe(null)
+                    expect(response.body).toHaveProperty('msg', 'Your answer is correct')
+                    expect(response.status).toBe(200)
+                    done()
+                })
+        })
+
+        test('success answer case nomer 9', (done) => {
+            request(app)
+                .post(`/execute/exam/9`)
+                .send({
+                    code:`
+                    function findUnique(arr) {
+                      return arr.find(n => arr.indexOf(n) === arr.lastIndexOf(n));
+                    }
+                    `
+                })
+                .end((err, response) => {
+                    expect(err).toBe(null)
+                    expect(response.body).toHaveProperty('msg', 'Your answer is correct')
+                    expect(response.status).toBe(200)
+                    done()
+                })
+        })
+
         test('error answer: code error', (done) => {
             request(app)
                 .post(`/execute/exam/4`)
@@ -189,7 +263,7 @@ describe('test for execute code', () => {
                 })
         })
 
-        test('wrong answer', (done) => {
+        test('error answer: code error', (done) => {
             request(app)
                 .post(`/execute/exam/4`)
                 .send({
@@ -211,5 +285,24 @@ describe('test for execute code', () => {
                     done()
                 })
         })
+
+        // test('wrong answer', (done) => {
+        //     request(app)
+        //         .post(`/execute/exam/9`)
+        //         .send({
+        //             code:`
+        //             function findUnique (arr) {
+        //                 return arr.find(n => arr.indexOf(n) === arr.lastIndexOf(n));
+        //             }
+        //             `
+        //         })
+        //         .end((err, response) => {
+        //             expect(err).toBe(null)
+        //             expect(response.body).toHaveProperty('msg', 'Wrong answer, please try again')
+        //             expect(response.status).toBe(400)
+        //             done()
+        //         })
+        // })
+        
     })
 })
