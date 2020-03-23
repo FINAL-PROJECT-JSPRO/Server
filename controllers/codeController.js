@@ -4,6 +4,7 @@ const { Exam } = require('../models')
 module.exports = {
   sandboxExecution(req, res, next) {
     const { code } = req.body
+    // console.log(typeof(code), code, 'dari controller')
     const result = executeCode(code)
     res
       .status(200)

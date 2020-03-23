@@ -1,10 +1,9 @@
 const router = require('express').Router()
-const { 
-  historyController, 
-  userController, 
-  googleController, 
-  userSubjectController,
-  githubController
+const {
+  historyController,
+  userController,
+  googleController,
+  userSubjectController
 } = require('../controllers')
 const authentication = require('../middlewares/authentication')
 
@@ -12,8 +11,6 @@ router.post('/login', userController.login)
 router.post('/register', userController.register)
 router.post('/verify', authentication, userController.findOne)
 router.post('/gSignIn', googleController.signInGoogle)
-router.post('/githubGetToken', githubController.getToken)
-router.get('/githubGetUser', githubController.getUser)
 router.post('/history', authentication, historyController.addHistory)
 router.put('/history', authentication, historyController.updateHistory)
 router.put('/', authentication, userController.editProfile)
