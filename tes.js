@@ -38,10 +38,33 @@
 // const breakChocolate = (n,m) => n * m - 1 <= 0 ? 0 : n * m -1
 
 // console.log(breakChocolate(4, 7) - breakChocolate(3, 5) - breakChocolate(3, 2))
+// // const assert = require('assert')
+// // assert(breakChocolate(4,7) === 27,);
 
 
 // Subject 5
-function tailSwap(arr) {
+// function tailSwap(arr) {
+//   let result = []
+//   let newArr = arr
+//   .map(string => string.split(':'))
+  
+//   for (let i = 0; i < newArr.length; ++i) {
+//     result.push(newArr[i][0] + ':' + newArr[newArr.length -1 -i][1]);
+//   }
+
+//   return result
+// }
+
+// console.log(tailSwap(["HACK:SIA", "VA:DO", "IN:TE", "NE:TI"]))
+
+
+// console.log((function breakChocolate (n,m) {
+//   return n * m - 1 <= 0 ? 0 : n * m -1
+// })(2,3))
+
+// console.log((breakChocolate = (n,m) => n * m - 1 <= 0 ? 0 : n * m -1)(2,3))
+
+console.log((tailSwap = function tailSwap (arr) {
   let result = []
   let newArr = arr
   .map(string => string.split(':'))
@@ -51,6 +74,4 @@ function tailSwap(arr) {
   }
 
   return result
-}
-
-console.log(tailSwap(["HACK:SIA", "VA:DO", "IN:TE", "NE:TI"]))
+})(["HACK:SIA","VA:DO","IN:TE","NE:TI"]))
