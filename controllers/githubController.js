@@ -1,9 +1,10 @@
 const axios = require('axios')
+const { User } = require('../models')
+const { sign } = require('../helpers/jwt')
 
 class GithubController {
   static async getToken (req, res, next) {
     const { client_id, client_secret, code } = req.body
-    console.log(req.body, '============================')
     try {
       let response = await axios({
         method: 'POST',
@@ -14,8 +15,10 @@ class GithubController {
           code
         }
       })
-      console.log(response, 'masuk', '==============================')
-      res.status(200).json({response})
+      const access_token = response.data.split('&')[0].split('=')[1]
+      res.status(200).json({
+        access_token
+      })
     }
     catch(err) {
       next(err)
@@ -23,21 +26,53 @@ class GithubController {
   }
 
   static async getUser (req, res, next) {
-    // const code = req.query.code
-    const token = req.headers.Authorization
+    const token = req.headers.access_token
     try {
       let response = await axios({
         method: 'GET',
         url: 'https://api.github.com/user',
         headers: {
-          Authorization: token
+          Authorization: 'token '+ token
         }
       })
-      res.status(200).json({response})
+      res.status(200).json({
+        profile: response.data
+      })
     }
     catch(err) {
       next(err)
     }
+  }
+
+  static login(req, res, next) {
+    const { payload } = req.body
+    User.findOne({
+      where: {
+        email: payload.email
+      }
+    })
+    .then(user => {
+      if (user) {
+      return user
+      } else {
+        return User.create({
+          username: payload.login,
+          email: payload.email,
+          name: payload.name
+        })
+      }
+    })
+    .then(user => {
+        const token = sign({
+          id: user.id,
+          email: user.email
+        })
+        res.status(200).json({
+          msg: "Login Success",
+          token
+      })
+    })
+    .catch(err => next(err))
   }
 }
 
