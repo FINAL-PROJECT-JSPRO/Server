@@ -18,7 +18,6 @@ module.exports = {
       }]
     })
       .then(subjects => {
-
         res
           .status(200)
           .json(subjects)
