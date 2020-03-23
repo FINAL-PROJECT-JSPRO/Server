@@ -76,12 +76,6 @@ module.exports = (sequelize, DataTypes) => {
         })
 
         const UserSubject = sequelize.models.UserSubject
-        // UserSubject.create({
-        //   UserId: user.id,
-        //   SubjectId: 1,
-        //   status: 'actives'
-        // })
-
         const allSubject = []
         for (let i = 1; i <= 9; i++) {
           const status = i === 1 ? 'active' : 'locked'
