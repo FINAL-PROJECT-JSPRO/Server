@@ -78,13 +78,13 @@
 
 
 // Subject 6
-function returnSpecifics(obj) {
-  let [arr1,arr2] = [[],[]]
-  for(let item in obj){
-    if (typeof obj[item] === 'number' ) arr1.push(obj[item])
-    if (typeof obj[item] === 'function') arr2.push(item)
-  }
-  return arr1.length < 1 && arr2.length < 1 ?  ['The Object is Empty'] : [...arr1, ...arr2]
-}
+// function returnSpecifics(obj) {
+//   let [arr1,arr2] = [[],[]]
+//   for(let item in obj){
+//     if (typeof obj[item] === 'number' ) arr1.push(obj[item])
+//     if (typeof obj[item] === 'function') arr2.push(item)
+//   }
+//   return arr1.length < 1 && arr2.length < 1 ?  ['The Object is Empty'] : [...arr1, ...arr2]
+// }
 
-console.log(returnSpecifics({a: 1, b: 'str', c: 2, d: true, e: a => a, f: 3}))
+// console.log(returnSpecifics({a: 1, b: 'str', c: 2, d: true, e: a => a, f: 3}))
