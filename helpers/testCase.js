@@ -44,16 +44,24 @@ const fifthAnswer = [
   ["asd:456", "fgh:123"]
 ]
 
+const sixthParams = [
+  "{a: 1, b: 'str', c: 2, d: true, e: a => a, f: 3}",
+  "{}",
+  "{g: 'hacktiv', h: 6, i: 0, j: f => console.log(f), t: f => f}"
+]
+
+const sixthAnswer = [
+  [ 1, 2, 3, 'e' ],
+  ['The Object is Empty'],
+  [6, 0, 'j', 't']
+]
+
 module.exports = 
 {
-  firstParams,
-  firstAnswer,
-  secondParams,
-  secondAnswer,
-  thirdParams,
-  thirdAnswer,
-  fourthParams,
-  fourthAnswer,
-  fifthParams,
-  fifthAnswer
+  firstParams, firstAnswer,
+  secondParams, secondAnswer,
+  thirdParams, thirdAnswer,
+  fourthParams, fourthAnswer,
+  fifthParams, fifthAnswer,
+  sixthParams, sixthAnswer
 }

@@ -1,24 +1,18 @@
-const executeCode = require('../helpers/executeCode')
-const { Exam } = require('../models')
+const { executeCode, executeSandbox } = require('../helpers/executeCode')
 const assert = require('assert')
 const {
-  firstParams,
-  firstAnswer,
-  secondParams,
-  secondAnswer,
-  thirdParams,
-  thirdAnswer,
-  fourthParams,
-  fourthAnswer,
-  fifthParams,
-  fifthAnswer
+  firstParams, firstAnswer,
+  secondParams, secondAnswer,
+  thirdParams, thirdAnswer,
+  fourthParams, fourthAnswer,
+  fifthParams, fifthAnswer,
+  sixthParams, sixthAnswer
 } = require('../helpers/testCase')
 
 module.exports = {
   sandboxExecution(req, res, next) {
     const { code } = req.body
-    // console.log(typeof(code), code, 'dari controller')
-    const result = executeCode(code)
+    const result = executeSandbox(code)
     res
       .status(200)
       .json(result)
@@ -38,7 +32,7 @@ module.exports = {
       case "2":
         params = secondParams
         answers = secondAnswer
-        break 
+        break
       case "3":
         params = thirdParams
         answers = thirdAnswer
@@ -50,6 +44,10 @@ module.exports = {
       case "5":
         params = fifthParams
         answers = fifthAnswer
+        break
+      case "6":
+        params = sixthParams
+        answers = sixthAnswer
         break
     }
 
