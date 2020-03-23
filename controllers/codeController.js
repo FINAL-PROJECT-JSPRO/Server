@@ -77,18 +77,5 @@ module.exports = {
       }
       else next({type: 'wronganswer'})
     }
-    // const { success, error } = executeCode(code, fifthParams[0])
-    // if (success) {
-    //       try {
-    //         assert.strictEqual(String(success), String(fifthAnswer[0]))
-    //         res
-    //           .status(200)
-    //           .json({msg: "Your answer is correct"})
-    //       } catch (error) {
-    //         next({type: 'wronganswer'})
-    //       }
-    // } else {
-    //   next({type: 'codeError', error})
-    // }
   }
 }

@@ -39,7 +39,7 @@ module.exports =  {
     return result
   },
 
-  executeSandbox() {
+  executeSandbox(str) {
     const result = {
       success: null,
       error: {}
