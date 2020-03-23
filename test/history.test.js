@@ -89,8 +89,8 @@ describe('history routes', () => {
             .set('access_token', token)
             .end((err, response) => {
                 expect(err).toBe(null)
-                expect(response.body).toHaveProperty('msg', 'Subject history not found')
-                expect(response.status).toBe(500)
+                expect(response.body).toHaveProperty('msg', 'Chapter history not found')
+                expect(response.status).toBe(404)
                 done()
             })
     })

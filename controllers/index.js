@@ -7,6 +7,7 @@ const historyController = require('./historyController')
 const codeController = require('./codeController')
 const googleController = require('./googleController')
 const userSubjectController = require('./userSubjectController')
+const githubController = require('./githubController')
 
 module.exports = {
   userController,
@@ -17,5 +18,6 @@ module.exports = {
   historyController,
   googleController,
   codeController,
-  userSubjectController
+  userSubjectController,
+  githubController
 }

@@ -2,7 +2,7 @@ module.exports = [
   {
     question: `<h1 class="examTitle">Javascript is Awesome!</h1><p class="examBody">Your task is to write a function that return a phrase "Javascript is awesome".</p>`,
     skeleton:
-`function simpleString() 
+`function simpleString(){
 
 
   return first + ' ' + second + ' ' + third
