@@ -12,7 +12,8 @@ module.exports = [
   {
     title: `<h1 class="chapterTitle">DATA TYPES</h1>`,
     body: `<h1 class="chapterSubtitle">Introduction to Data Types</h1><p class="chapterBody"><em>Data types</em> are the classifications we give to the different kinds of data that we use in programming.  In JavaScript, there are seven fundamental data types:</p><ol class="chapterOrderedList"><li class="chapterList"><em>Number</em>: Any number, including numbers with decimals.</li><li class="chapterList"><em>String</em>: Any grouping of characters on your keyboard (letters, numbers, spaces, symbols, etc.) surrounded by single quotes. Though we prefer single quotes. Some people like to think of string as a fancy word for text.</li><li class="chapterList"><em>Boolean</em>: This data type only has two possible values — either “true” or “false” (without quotes). It’s helpful to think of booleans as on and off switches or as the answers to a “yes” or “no” question.</li><li class="chapterList"><em>Null</em>: This data type represents the intentional absence of a value, and is represented by the keyword “null” (without quotes).</li><li class="chapterList"><em>Undefined</em>: This data type is denoted by the keyword “undefined” (without quotes). It also represents the absence of a value though it has a different use than “null”.</li><li class="chapterList"><em>Symbol</em>: A newer feature to the language, symbols are unique identifiers, useful in more complex coding. No need to worry about these for now.</li><li class="chapterList"><em>Object</em>: Collections of related data.</li></ol>`,
-    SubjectId: 1
+    SubjectId: 1,
+    isLast: true
   },
   {
     title: `<h1 class="chapterTitle">IF STATEMENT</h1>`,
@@ -85,7 +86,8 @@ module.exports = [
 
 <span class="code-comment">// Prints 'Papayas are $1.29'</span></div></span></pre>
 <ul class="chapterUnorderedList"><li class="chapterList">The <code class="chapterCode">switch</code> keyword initiates the statement and is followed by <code class="chapterCode">( ... )</code>, which contains the value that each <code class="chapterCode">case</code> will compare. In the example, the value or expression of the <code class="chapterCode">switch</code> statement is <code class="chapterCode">groceryItem</code>.</li><li class="chapterList">Inside the block, <code class="chapterCode">{ ... }</code>, there are multiple <code class="chapterCode">case</code>s. The <code class="chapterCode">case</code> keyword checks if the expression matches the specified value that comes after it. The value following the first <code class="chapterCode">case</code> is <code class="chapterCode">'tomato'</code>. If the value of <code class="chapterCode">groceryItem</code> equalled <code class="chapterCode">'tomato'</code>, that <code class="chapterCode">case</code>‘s <code class="chapterCode">console.log()</code> would run.</li><li class="chapterList">The value of <code class="chapterCode">groceryItem</code> is <code class="chapterCode">'papaya'</code>, so the third <code class="chapterCode">case</code> runs— <code class="chapterCode">Papayas are $1.29</code> is logged to the console.</li><li class="chapterList">The <code class="chapterCode">break</code> keyword tells the computer to exit the block and not execute any more code or check any other cases inside the code block. Note: Without the <code class="chapterCode">break</code> keyword at the end of each case, the program would execute the code for all matching cases and the default code as well. This behavior is different from <code class="chapterCode">if</code>/<code class="chapterCode">else</code> conditional statements which execute only one block of code. </li><li class="chapterList">At the end of each <code class="chapterCode">switch</code> statement, there is a <code class="chapterCode">default</code> statement. If none of the <code class="chapterCode">case</code>s are true, then the code in the <code class="chapterCode">default</code> statement will run.</li></ul>`,
-    SubjectId: 2
+    SubjectId: 2,
+    isLast: true
   },
   {
     title: `<h1 class="chapterTitle">FOR LOOP</h1>`,
@@ -145,7 +147,8 @@ module.exports = [
   <span class="code-variable">console</span>.<span class="code-property">log</span>(<span class="code-variable">secondMessage</span>)
 };
 </div></span></pre>`,
-    SubjectId: 3
+    SubjectId: 3,
+    isLast: true
   },
   {
     title: `<h1 class="chapterTitle">FUNCTION DECLARATION</h1>`,
@@ -191,7 +194,8 @@ module.exports = [
   {
     title: `<h1 class="chapterTitle">PARAMETERS AND ARGUMENTS</h1>`,
     body: `<h1 class="chapterSubtitle">Parameters and Arguments</h1><p class="chapterBody">So far, the functions we’ve created execute a task without an input. However, some functions can take inputs and use the inputs to perform a task. When declaring a function, we can specify its <em>parameters</em>. Parameters allow functions to accept input(s) and perform a task using the input(s). We use parameters as placeholders for information that will be passed to the function when it is called. </p><p class="chapterBody">Let’s observe how to specify parameters in our function declaration:</p><img src="https://s3.amazonaws.com/codecademy-content/courses/learn-javascript-functions/Diagram/function+parameters.svg" alt="JavaScript syntax for declaring a function with parameters" class="chapterImage"><p class="chapterBody">In the diagram above, <code class="chapterCode">calculateArea()</code>, computes the area of a rectangle, based on two inputs, <code class="chapterCode">width</code> and <code class="chapterCode">height</code>. The parameters are specified between the parenthesis as <code class="chapterCode">width</code> and <code class="chapterCode">height</code>, and inside the function body, they act just like regular variables. <code class="chapterCode">width</code> and <code class="chapterCode">height</code> act as placeholders for values that will be multiplied together. </p><p class="chapterBody">When calling a function that has parameters, we specify the values in the parentheses that follow the function name. The values that are passed to the function when it is called are called <em>arguments</em>. Arguments can be passed to the function as values or variables. </p><img src="https://s3.amazonaws.com/codecademy-content/courses/learn-javascript-functions/Diagram/by_value.svg" alt="JavaScript syntax for invoking a function with arguments as values" class="chapterImage"><p class="chapterBody">In the function call above, the number <code class="chapterCode">10</code> is passed as the <code class="chapterCode">width</code> and <code class="chapterCode">6</code> is passed as <code class="chapterCode">height</code>. Notice that the order in which arguments are passed and assigned follows the order that the parameters are declared.  </p><img src="https://s3.amazonaws.com/codecademy-content/courses/learn-javascript-functions/Diagram/by_variable.svg" alt="JavaScript syntax for invoking a function with arguments as variables" class="chapterImage"><p class="chapterBody">The variables <code class="chapterCode">rectWidth</code> and <code class="chapterCode">rectHeight</code> are initialized with the values for the height and width of a rectangle before being used in the function call. </p><p class="chapterBody">By using parameters, <code class="chapterCode">calculateArea()</code> can be reused to compute the area of any rectangle! Functions are a powerful tool in computer programming so let’s practice creating and calling functions with parameters.</p>`,
-    SubjectId: 4
+    SubjectId: 4,
+    isLast: true
   },
   {
     title: `<h1 class="chapterTitle">ARRAY</h1>`,
@@ -258,7 +262,8 @@ module.exports = [
 <span class="code-comment">// expected output: Array [2, 3]</span>
 <span class="code-variable">console</span>.<span class="code-property">log</span>(<span class="code-variable">firstElement</span>);
 <span class="code-comment">// expected output: 1</span></div></span></pre>`,
-    SubjectId: 5
+    SubjectId: 5,
+    isLast: true
   },
   {
     title: `<h1 class="chapterTitle">OBJECT LITERAL</h1>`,
@@ -288,7 +293,8 @@ module.exports = [
 <span class="code-variable">spaceship</span>[<span class="code-string">'Fuel Type'</span>];   <span class="code-comment">// Returns  'Turbo Fuel'</span>
 <span class="code-variable">spaceship</span>[<span class="code-string">'numCrew'</span>];   <span class="code-comment">// Returns 5</span>
 <span class="code-variable">spaceship</span>[<span class="code-string">'!!!!!!!!!!!!!!!'</span>];   <span class="code-comment">// Returns undefined</span></div></span></pre>`,
-    SubjectId: 6
+    SubjectId: 6,
+    isLast: true
   },
   {
     title: `<h1 class="chapterTitle">HIGHER-ORDER FUNCTION</h1>`,
@@ -347,7 +353,8 @@ module.exports = [
 <pre class="chapterPre"><span class="chapterCodeBlock"><div class="chapterCodeContainer"><span class="code-variable">console</span>.<span class="code-property">log</span>(<span class="code-variable">words</span>); <span class="code-comment">// Output: ['chair', 'music', 'pillow', 'brick', 'pen', 'door']; </span>
 <span class="code-variable">console</span>.<span class="code-property">log</span>(<span class="code-variable">shortWords</span>); <span class="code-comment">// Output: ['chair', 'music', 'brick', 'pen', 'door']</span></div></span></pre>
 <p class="chapterBody">Observe how <code class="chapterCode">words</code> was not mutated, i.e. changed, and <code class="chapterCode">shortWords</code> is a new array. </p>`,
-    SubjectId: 7
+    SubjectId: 7,
+    isLast: true
   },
   {
     title: `<h1 class="chapterTitle">CLASS</h1>`,
@@ -406,7 +413,8 @@ module.exports = [
   }
 }</div></span></pre>
 <p class="chapterBody">In the example above, we add getter methods for <code class="chapterCode">name</code> and <code class="chapterCode">behavior</code>. Notice, we also prepended our property names with underscores (<code class="chapterCode">_name</code> and <code class="chapterCode">_behavior</code>), which indicate these properties should not be accessed directly. Under the getters, we add a method named <code class="chapterCode">.incrementBehavior()</code>. When you call <code class="chapterCode">.incrementBehavior()</code> on a Dog instance, it adds <code class="chapterCode">1</code> to the <code class="chapterCode">_behavior</code> property. Between each of our methods, we did <em>not</em> include commaschapterPrep>`,
-    SubjectId: 8
+    SubjectId: 8,
+    isLast: true
   },
   {
     title: `<h1 class="chapterTitle">ASYNCHRONOUS JAVASCRIPT</h1>`,
@@ -488,6 +496,7 @@ gods<span>.</span><span class="code-function">forEach</span><span>(</span><span 
 <span>}</span>
 
 <span class="code-function">f1</span><span>(</span><span>)</span><span>;</span></div></span></pre>`,
-    SubjectId: 9
+    SubjectId: 9,
+    isLast: true
   }
 ]
