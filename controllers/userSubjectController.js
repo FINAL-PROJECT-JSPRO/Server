@@ -5,7 +5,6 @@ module.exports = {
     const UserId = req.currentUserId
     UserSubject.findAll({ where: { UserId }, include: Subject })
       .then(subjects => {
-
         res
           .status(200)
           .json(subjects)

@@ -1,13 +1,14 @@
 const request = require('supertest')
 const app = require('../app')
-const { User, sequelize } = require('../models')
+const { User, sequelize, UserSubject } = require('../models')
 const { queryInterface } = sequelize
 const { sign } = require('../helpers/jwt')
 
 let token
+let user_id
 
 describe('User Routes', () => {
-    beforeEach((done) => {
+    beforeAll((done) => {
         User.create({
             username: "Dummy Test",
             email: "dummy@dummy.com",
@@ -18,11 +19,19 @@ describe('User Routes', () => {
                     id: user.id,
                     email: user.email
                 })
-                done()    
+                // user_id = user.id
+                // console.log(user_id, '================')
+                // return UserSubject.create({
+                //     UserId: user_id,
+                //     SubjectId: 1,
+                //     status: 'locked'
+                // })
+                done()
             })
+            // .then(_ => done())    
             .catch(err => done(err))
     })
-    afterEach((done) => {
+    afterAll((done) => {
         queryInterface.bulkDelete('Users', {})
             .then(_ => done())
             .catch(err => done(err))
@@ -330,6 +339,55 @@ describe('User Routes', () => {
                     expect(err).toBe(null)
                     expect(response.status).toBe(200)
                     expect(response.body).toStrictEqual(expect.any(Array))
+                    done()
+                })
+        })
+    })
+
+    describe('findALl userSubject', () => {
+        test('should return array and status', (done) => {
+            request(app)
+                .get('/users/subjectHistory')
+                .set('access_token', token)
+                .end((err, response) => {
+                    expect(err).toBe(null)
+                    expect(response.body).toStrictEqual(expect.any(Array))
+                    expect(response.status).toBe(200)
+                    done()
+                })
+        })
+    })
+
+    describe('edit user subject', () => {
+        // console.log(user_id, '}+{}+{}{+}+{+}}{}++}+{')
+        test('success edit userSubject', (done) => {
+            request(app)
+                .patch('/users/subjectHistory/1')
+                .set('access_token', token)
+                .send({
+                    status: 'unlocked'
+                })
+                .end((err, response) => {
+                    // console.log(response.body, '}+{+{{}+{}}++{{}{}')
+                    expect(err).toBe(null)
+                    expect(response.body).toHaveProperty('msg', 'Status updated successfully')
+                    expect(response.status).toBe(200)
+                    done()
+                })
+        })
+
+        test('success edit userSubject', (done) => {
+            request(app)
+                .patch('/users/subjectHistory/100')
+                .set('access_token', token)
+                .send({
+                    status: 'unlocked'
+                })
+                .end((err, response) => {
+                    // console.log(response.body, '}+{+{{}+{}}++{{}{}')
+                    expect(err).toBe(null)
+                    expect(response.body).toHaveProperty('msg', 'Subject history not found')
+                    expect(response.status).toBe(404)
                     done()
                 })
         })
