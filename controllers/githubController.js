@@ -103,7 +103,7 @@ class GithubController {
   static addToRepo(req, res, next) {
     const token = req.headers.access_token
     const { repoName, fileName, code, description } = req.body
-
+    let githubURL
     axios({
       method: 'post',
       url: process.env.GITHUBAPI_BASEURL + 'user/repos',
@@ -119,7 +119,8 @@ class GithubController {
         return createdRepo
       })
       .then(createdRepo => {
-        const {full_name} = createdRepo
+        const {full_name, html_url } = createdRepo
+        githubURL = html_url
         const encodedCode = Buffer.from(code).toString('base64')
         return axios({
           method: 'put',
@@ -139,9 +140,13 @@ class GithubController {
       })
       .then(({data}) => {
         const { content } = data
+        const payload = {
+          content,
+          githubURL
+        }
         res
           .status(201)
-          .json(content)
+          .json(payload)
       })
       .catch(next)
   }
