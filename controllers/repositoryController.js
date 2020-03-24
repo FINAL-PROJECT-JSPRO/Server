@@ -59,5 +59,19 @@ module.exports = {
       })
     })
     .catch(err => next(err))
+  },
+  getRepository (req, res, next) {
+    const id = req.params.id
+    Repository.findOne({
+      where: {
+        id
+      }
+    })
+    .then(repository => {
+      res.status(200).json({
+        repository
+      })
+    })
+    .catch(err => next(err))
   }
 }
