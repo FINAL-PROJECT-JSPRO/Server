@@ -100,77 +100,16 @@ class GithubController {
     }
   }
 
-  static async saveToGithubRepository (req, res, next) {
-    try {
-    const access_token =  req.headers.access_token
-    const {
-      repositoryName,
-      fileName,
-      description,
-      script,
-      message } = req.body
-      let response = await axios({
-        method: 'GET',
-        url: 'https://api.github.com/user',
-        headers: {
-          Authorization: 'token '+ access_token
-        }
-      })
-
-      const file = fs.appendFileSync('files/'+ response.data.login +'/' + fileName, script , { encoding:'base64'})
-      // console.log(file)
-
-      // fs.writeFile('files/script.js', 'function hello ()', (err) => {
-      //   if (err) throw err
-      //   console.log('File is created successfully.');
-      // })
-      response = await axios({
-        method: 'POST',
-        url: 'https://api.github.com/user/repos',
-        headers: {
-          Authorization: 'token ' + access_token,
-          'Content-Type': 'application/json'
-        },
-        data: {
-          name: repositoryName,
-          description,
-          private: false
-        }
-      })
-
-      const owner = response.data.owner.login
-
-      response = await axios({
-        method: 'PUT',
-        url: 'https://api.github.com/repos/'+owner+'/'+repositoryName+'/contents/'+fileName,
-        headers: {
-          Authorization: 'token ' + access_token,
-          'Content-Type': 'application/json'
-        },
-        data: {
-          message,
-          content: file
-        }
-      })
-      fs.unlink('files/'+ response.data.login +'/' + fileName, function (err) {
-        if (err) throw err;
-        console.log('File deleted!');
-      });
-      res.status(201).json(response.data)
-    } catch (error) {
-      next(error)
-    }
-  }
-
   static addToRepo(req, res, next) {
     const token = req.headers.access_token
-    const { repoName, fileName, code } = req.body
+    const { repoName, fileName, code, description } = req.body
 
     axios({
       method: 'post',
       url: process.env.GITHUBAPI_BASEURL + 'user/repos',
       data: {
-        name: repoName
+        name: repoName,
+        description
       },
       headers: {
         Authorization: 'token '+ token
