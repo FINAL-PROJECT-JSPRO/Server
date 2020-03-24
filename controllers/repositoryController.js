@@ -73,5 +73,17 @@ module.exports = {
       })
     })
     .catch(err => next(err))
+  },
+  updateRepository (req,res, next) {
+    const { github_url } = req.body
+    const id = req.params.id
+    Repository.update({
+      github_url
+    }, { where: { id }, returning: true
+    })
+    .then(response => {
+      res.status(200).json(response)
+    })
+    .catch(err => next(err))
   }
 }
