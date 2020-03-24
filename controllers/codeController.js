@@ -69,7 +69,7 @@ module.exports = {
     let correctAnswer = true
     let errorCatcher = {}
     params.forEach ((param, index) => {
-      const { success, error } = executeCode(code, params[index])
+      const { success, error } = executeCode(code, param)
       if (success) {
             try {
               assert.strictEqual(String(success), String(answers[index]))
