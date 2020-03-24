@@ -39,7 +39,8 @@
     "coveragePathIgnorePatterns": [
       "<rootDir>/controllers/googleController",
       "<rootDir>/controllers/githubController",
-      "<rootDir>/controllers/repositoryController"
+      "<rootDir>/controllers/repositoryController",
+      "<rootDir>/middlewares/authorization"
     ]
   }
 }
