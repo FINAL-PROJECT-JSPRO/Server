@@ -22,6 +22,12 @@ module.exports = (err, req, res, next) => {
     } else if (err.type === 'subjectnotfound') {
         err.status = 404
         err.msg = "Subject history not found"
+    } else if (err.type === 'invalidToken') {
+        err.status = 403
+        err.msg = "Sorry, your github token seems to be invalid or expired"
+    } else if (err.type === 'tokenNotProvided') {
+        err.status = 403
+        err.msg = "Please login by github account first"
     }
 
     if (err.name === "SequelizeValidationError") {
