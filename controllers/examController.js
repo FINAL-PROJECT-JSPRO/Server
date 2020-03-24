@@ -1,4 +1,4 @@
-const { Exam, Subject } = require('../models')
+const { Exam, Subject, Chapter } = require('../models')
 
 module.exports = {
   getAllExam(req, res, next) {
@@ -13,7 +13,12 @@ module.exports = {
 
   getOneExam(req, res, next) {
     const { id } = req.params
-    Exam.findOne({ where: { id }, include: Subject })
+    Exam.findOne({ where: { id },
+      include: [{
+        model: Subject,
+        include: [Chapter]
+      }]
+    })
       .then(exam => {
         res
           .status(200)
