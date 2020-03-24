@@ -34,5 +34,11 @@
   },
   "devDependencies": {
     "supertest": "^4.0.2"
+  },
+  "jest": {
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/controllers/googleController",
+      "<rootDir>/controllers/githubController"
+    ]
   }
 }
