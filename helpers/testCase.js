@@ -56,6 +56,55 @@ const sixthAnswer = [
   [6, 0, 'j', 't']
 ]
 
+const seventhParams = [
+  "'one two three', 'four five six'",
+  "'hacktiv', 'jscript'"
+]
+
+const seventhAnswer = [
+  [
+    'one two three', 'fne two three',
+    'foe two three', 'fou two three',
+    'fourtwo three', 'four wo three',
+    'four fo three', 'four fi three',
+    'four fivthree', 'four fivehree',
+    'four five ree', 'four five see',
+    'four five sie', 'four five six'
+  ],
+  [
+    'hacktiv',
+    'jacktiv',
+    'jscktiv',
+    'jscrtiv',
+    'jscriiv',
+    'jscripv',
+    'jscript'
+  ]
+]
+
+const eightParams = [
+  "'Hacktiv8'",
+  "'Final'",
+  "'Project'"
+]
+
+const eightAnswer = [
+  'Hacktiv8',
+  'Final',
+  'Project'
+]
+
+const ninthParams = [
+  "\[4, 4, 4, 4, 2, 4, 4\]",
+  "\[2, 1, 2, 2, 2, 2, 2\]",
+  "\[3/4, 6/8, 9/12, 0.75, 1.25\]",
+  "\[0.75, 40/100, 2/5, 2*2/10, 0.4, 8/20\]"
+]
+
+const ninthAnswer = [
+  2, 1, 1.25, 0.75
+]
+
 module.exports = 
 {
   firstParams, firstAnswer,
@@ -63,5 +112,8 @@ module.exports =
   thirdParams, thirdAnswer,
   fourthParams, fourthAnswer,
   fifthParams, fifthAnswer,
-  sixthParams, sixthAnswer
+  sixthParams, sixthAnswer,
+  seventhParams, seventhAnswer,
+  eightParams, eightAnswer,
+  ninthParams, ninthAnswer
 }

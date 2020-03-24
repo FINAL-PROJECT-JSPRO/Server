@@ -32,14 +32,14 @@ module.exports =  {
       result.success = vm.runInNewContext("("+code+")"+"("+params+")")
       result.answerType = typeof result.success
     } catch (error) {
-      console.log('errornya', error)
+      // console.log('errornya', error)
         result.error.name = error.name
         result.error.message = error.message
     }
     return result
   },
 
-  executeSandbox() {
+  executeSandbox(str) {
     const result = {
       success: null,
       error: {}
@@ -48,6 +48,7 @@ module.exports =  {
       result.success = vm.runInNewContext(str)
       result.answerType = typeof result.success
     } catch (error) {
+      // console.log(error)
         result.error.name = error.name
         result.error.message = error.message
     }

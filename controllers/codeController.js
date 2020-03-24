@@ -6,7 +6,10 @@ const {
   thirdParams, thirdAnswer,
   fourthParams, fourthAnswer,
   fifthParams, fifthAnswer,
-  sixthParams, sixthAnswer
+  sixthParams, sixthAnswer,
+  seventhParams, seventhAnswer,
+  eightParams, eightAnswer,
+  ninthParams, ninthAnswer
 } = require('../helpers/testCase')
 
 module.exports = {
@@ -49,6 +52,18 @@ module.exports = {
         params = sixthParams
         answers = sixthAnswer
         break
+      case "7":
+        params = seventhParams
+        answers = seventhAnswer
+        break
+      case "8":
+        params = eightParams
+        answers = eightAnswer
+        break
+      case "9":
+        params = ninthParams
+        answers = ninthAnswer
+        break
     }
 
     let correctAnswer = true
@@ -77,18 +92,5 @@ module.exports = {
       }
       else next({type: 'wronganswer'})
     }
-    // const { success, error } = executeCode(code, fifthParams[0])
-    // if (success) {
-    //       try {
-    //         assert.strictEqual(String(success), String(fifthAnswer[0]))
-    //         res
-    //           .status(200)
-    //           .json({msg: "Your answer is correct"})
-    //       } catch (error) {
-    //         next({type: 'wronganswer'})
-    //       }
-    // } else {
-    //   next({type: 'codeError', error})
-    // }
   }
 }

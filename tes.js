@@ -58,33 +58,78 @@
 // console.log(tailSwap(["HACK:SIA", "VA:DO", "IN:TE", "NE:TI"]))
 
 
-// console.log((function breakChocolate (n,m) {
-//   return n * m - 1 <= 0 ? 0 : n * m -1
-// })(2,3))
+// Subject 6
+// function returnSpecifics(obj) {
+//   let [arr1,arr2] = [[],[]]
+//   for(let item in obj){
+//     if (typeof obj[item] === 'number' ) arr1.push(obj[item])
+//     if (typeof obj[item] === 'function') arr2.push(item)
+//   }
+//   return arr1.length < 1 && arr2.length < 1 ?  ['The Object is Empty'] : [...arr1, ...arr2]
+// }
 
-// console.log((breakChocolate = (n,m) => n * m - 1 <= 0 ? 0 : n * m -1)(2,3))
+// console.log(returnSpecifics({a: 1, b: 'str', c: 2, d: true, e: a => a, f: 3}))
 
-// console.log((tailSwap = function tailSwap (arr) {
-//   let result = []
-//   let newArr = arr
-//   .map(string => string.split(':'))
-  
-//   for (let i = 0; i < newArr.length; ++i) {
-//     result.push(newArr[i][0] + ':' + newArr[newArr.length -1 -i][1]);
+
+// Subject 7
+// function transform(source, target) {
+//   var result = [source];
+//   for (var i = 0; i <= source.length; i++) {
+//     if (source[i] !== target[i]) {
+//       var newStr = source.replace(source.slice(0, i + 1), target.slice(0, i + 1)); 
+//       result.push(newStr);
+//     }
+//   }
+//   return result;
+// }
+
+// console.log(transform('one two three', 'four five six'))
+// // [
+// //   'one two three', 'fne two three',
+// //   'foe two three', 'fou two three',
+// //   'fourtwo three', 'four wo three',
+// //   'four fo three', 'four fi three',
+// //   'four fivthree', 'four fivehree',
+// //   'four five ree', 'four five see',
+// //   'four five sie', 'four five six'
+// // ]
+// console.log(transform('hacktiv', 'jscript'))
+// // [
+// //   'hacktiv',
+// //   'jacktiv',
+// //   'jscktiv',
+// //   'jscrtiv',
+// //   'jscriiv',
+// //   'jscripv',
+// //   'jscript'
+// // ]
+
+
+// Subject 8
+// function simpleClass(word) {
+//   let MyNamespace = {}
+
+//   MyNamespace.MyClass = class {
+//     constructor(arg) {
+//       this.arg = arg
+//     }
+    
+//     sayWord() {
+//       return this.arg
+//     }
 //   }
 
-//   return result
-// })(["HACK:SIA","VA:DO","IN:TE","NE:TI"]))
+//   const myObject = new MyNamespace.MyClass(word);
+//   return myObject.sayWord()
+// }
 
 
-// Subject 6
-function returnSpecifics(obj) {
-  let [arr1,arr2] = [[],[]]
-  for(let item in obj){
-    if (typeof obj[item] === 'number' ) arr1.push(obj[item])
-    if (typeof obj[item] === 'function') arr2.push(item)
-  }
-  return arr1.length < 1 && arr2.length < 1 ?  ['The Object is Empty'] : [...arr1, ...arr2]
-}
+// console.log(simpleClass('Hacktiv8'))
+// console.log(simpleClass('Final'))
+// console.log(simpleClass('Project'))
 
-console.log(returnSpecifics({a: 1, b: 'str', c: 2, d: true, e: a => a, f: 3}))
+
+// Subject 9
+// function findUnique(arr) {
+//   return arr.find(n => arr.indexOf(n) === arr.lastIndexOf(n));
+// }

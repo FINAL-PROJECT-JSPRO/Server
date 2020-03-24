@@ -1,5 +1,4 @@
 module.exports = (err, req, res, next) => {
-    // console.log(err, '+{}+{}+{+{}+{}+{{}+{{{+{')
     console.log(err)
     if (err.type === 'notlogin') {
         err.status = 403

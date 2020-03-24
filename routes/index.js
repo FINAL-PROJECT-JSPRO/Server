@@ -6,6 +6,7 @@ const chapterRouter = require('./chapterRouter')
 const levelRouter = require('./levelRouter')
 const codeRouter = require('./codeRouter')
 const githubRouter = require('./githubRouter')
+const repositoryRouter = require('./repositoryRouter')
 
 router.use('/users', userRouter)
 router.use('/exams', examRouter)
@@ -14,5 +15,6 @@ router.use('/chapters', chapterRouter)
 router.use('/levels', levelRouter)
 router.use('/execute', codeRouter)
 router.use('/github', githubRouter)
+router.use('/repositories', repositoryRouter)
 
 module.exports = router
