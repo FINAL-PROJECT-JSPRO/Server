@@ -104,8 +104,7 @@ class GithubController {
   }
 
   static addToRepo(req, res, next) {
-    // const token = req.headers.access_token
-    const token = req.githubToken
+    const token = req.headers.access_token
     const { repoName, fileName, code, description } = req.body
     let githubURL
     axios({
