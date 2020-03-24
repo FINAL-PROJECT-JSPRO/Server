@@ -19,16 +19,8 @@ describe('User Routes', () => {
                     id: user.id,
                     email: user.email
                 })
-                // user_id = user.id
-                // console.log(user_id, '================')
-                // return UserSubject.create({
-                //     UserId: user_id,
-                //     SubjectId: 1,
-                //     status: 'locked'
-                // })
                 done()
-            })
-            // .then(_ => done())    
+            }) 
             .catch(err => done(err))
     })
     afterAll((done) => {
@@ -106,7 +98,7 @@ describe('User Routes', () => {
                         })
                         .end((err, response) => {
                             expect(err).toBe(null)
-                            expect(response.body).toHaveProperty('msg', 'username must be unique')
+                            expect(response.body).toHaveProperty('msg', 'username is already registered')
                             expect(response.status).toBe(400)
                             done()
                         })
@@ -178,7 +170,7 @@ describe('User Routes', () => {
                         })
                         .end((err, response) => {
                             expect(err).toBe(null)
-                            expect(response.body).toHaveProperty('msg', 'email must be unique')
+                            expect(response.body).toHaveProperty('msg', 'email is already registered')
                             expect(response.status).toBe(400)
                             done()
                         })
@@ -271,7 +263,7 @@ describe('User Routes', () => {
                     })
                     .end((err, response) => {
                         expect(err).toBe(null)
-                        expect(response.body).toHaveProperty('msg', 'Invalid Username/Email')
+                        expect(response.body).toHaveProperty('msg', 'Invalid Username/Password')
                         expect(response.status).toBe(400)
                         done()
                     })
@@ -286,7 +278,7 @@ describe('User Routes', () => {
                     })
                     .end((err, response) => {
                         expect(err).toBe(null)
-                        expect(response.body).toHaveProperty('msg', 'Invalid Password')
+                        expect(response.body).toHaveProperty('msg', 'Invalid Email/Password')
                         expect(response.status).toBe(400)
                         done()
                     })
@@ -301,7 +293,7 @@ describe('User Routes', () => {
                     })
                     .end((err, response) => {
                         expect(err).toBe(null)
-                        expect(response.body).toHaveProperty('msg', 'Invalid Password')
+                        expect(response.body).toHaveProperty('msg', 'Invalid Username/Password')
                         expect(response.status).toBe(400)
                         done()
                     })

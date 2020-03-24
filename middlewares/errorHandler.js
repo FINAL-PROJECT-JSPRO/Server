@@ -12,9 +12,13 @@ module.exports = (err, req, res, next) => {
     } else if (err.type === 'codeError') {
         err.status = 400
         err.msg = "Code error"
-    } else if (err.name === 'SequelizeUniqueConstraintError') {
+    } else if (err.name === 'SequelizeUniqueConstraintError' && err.errors[0].message === "username must be unique") {
         res.status(400).json({
-            msg: err.errors[0].message
+            msg: "username is already registered"
+        })
+    } else if (err.name === 'SequelizeUniqueConstraintError' && err.errors[0].message === "email must be unique") {
+        res.status(400).json({
+            msg: "email is already registered"
         })
     } else if (err.type === 'chapternotfound') {
         err.status = 404

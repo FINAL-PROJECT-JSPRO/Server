@@ -35,7 +35,7 @@ class UserController {
                 if (response[0] === null && response[1] === null) {
                     next({
                         status: 400,
-                        msg: "Invalid Username/Email"
+                        msg: "Invalid Username/Password"
                     })
                 } else {
                     if (response[0] !== null) {
@@ -52,7 +52,7 @@ class UserController {
                         } else {
                             next({
                                 status: 400,
-                                msg: "Invalid Password"
+                                msg: "Invalid Email/Password"
                             })
                         }
                     } else if (response[1] !== null) {
@@ -69,7 +69,7 @@ class UserController {
                         } else {
                             next({
                                 status: 400,
-                                msg: "Invalid Password"
+                                msg: "Invalid Username/Password"
                             })
                         }
                     }
