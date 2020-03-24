@@ -7,6 +7,7 @@ module.exports = (sequelize, DataTypes) => {
       // association
       User.hasMany(models.UserAnswer)
       User.hasMany(models.History)
+      User.hasMany(models.Repository)
     }
   }
   User.init({
