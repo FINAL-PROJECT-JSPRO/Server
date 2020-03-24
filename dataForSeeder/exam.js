@@ -6,9 +6,7 @@ module.exports = [
   // write your code here
 
   return first + ' ' + second + ' ' + third
-}
-
-// output: Javascript is awesome`,
+}`,
     SubjectId: 1
   },
   {

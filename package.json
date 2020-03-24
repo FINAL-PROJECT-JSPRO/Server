@@ -38,7 +38,8 @@
   "jest": {
     "coveragePathIgnorePatterns": [
       "<rootDir>/controllers/googleController",
-      "<rootDir>/controllers/githubController"
+      "<rootDir>/controllers/githubController",
+      "<rootDir>/controllers/repositoryController"
     ]
   }
 }
