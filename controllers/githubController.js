@@ -18,9 +18,11 @@ class GithubController {
         }
       })
       const access_token = response.data.split('&')[0].split('=')[1]
-      console.log(access_token)
+      const githubToken = sign({ githubToken: access_token })
+      
       res.status(200).json({
-        access_token
+        access_token,
+        githubToken
       })
     }
     catch(err) {
@@ -30,6 +32,7 @@ class GithubController {
 
   static async getUser (req, res, next) {
     const token = req.headers.access_token
+
     try {
       let response = await axios({
         method: 'GET',
@@ -101,7 +104,8 @@ class GithubController {
   }
 
   static addToRepo(req, res, next) {
-    const token = req.headers.access_token
+    // const token = req.headers.access_token
+    const token = req.githubToken
     const { repoName, fileName, code, description } = req.body
 
     axios({
@@ -125,7 +129,7 @@ class GithubController {
           method: 'put',
           url: process.env.GITHUBAPI_BASEURL + 'repos/' + full_name + '/contents/' + fileName,
           data: {
-            message: "my commit message",
+            message: "Auto-generated message from JSPro",
             committer: {
               name: "JSPro",
               email: "jsproteam@github.com"
