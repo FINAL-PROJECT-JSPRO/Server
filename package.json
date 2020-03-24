@@ -41,7 +41,9 @@
       "<rootDir>/controllers/googleController",
       "<rootDir>/controllers/githubController",
       "<rootDir>/controllers/repositoryController",
-      "<rootDir>/middlewares/authorization"
+      "<rootDir>/middlewares/authorization",
+      "<rootDir>/helpers/transpile",
+      "<rootDir>/helpers/executeCode"
     ]
   }
 }
