@@ -364,4 +364,56 @@ describe('User Routes', () => {
                 })
         })
     })
+
+    describe('Update Profile Picture', () => {
+        describe('Profile picture updated successfully', () => {
+            test('Should return status 200 and message that profile picture updated successfully', (done) => {
+                request(app)
+                    .patch('/users/photoUpload')
+                    .send({
+                        imageUrl: 'https://cdn.dribbble.com/users/304574/screenshots/6222816/male-user-placeholder.png'
+                    })
+                    .set('access_token', token)
+                    .end((err, response) => {
+                        const { body, status } = response
+                        const { msg } = body
+                        expect(err).toBe(null);
+                        expect(msg).toBe("User's profile picture updated successfully")
+                        expect(status).toBe(200);
+                        done()
+                    })
+            })
+        })
+    
+        describe('Profile picture updated successfully', () => {
+            test('Should return status 400 and message that profile picture did not updated', (done) => {
+                request(app)
+                    .patch('/users/photoUpload')
+                    .set('access_token', token)
+                    .end((err, response) => {
+                        const { body, status } = response
+                        const { msg } = body
+                        expect(err).toBe(null);
+                        expect(msg).toBe("User's profile picture did not updated")
+                        expect(status).toBe(400);
+                        done()
+                    })
+            })
+        })
+
+        describe('Unauthenticated user', () => {
+            test('Should return status 403 and message that unregistered user cannot access this route', (done) => {
+                request(app)
+                    .patch('/users/photoUpload')
+                    .end((err, response) => {
+                        const { body, status } = response
+                        const { msg } = body
+                        expect(err).toBe(null);
+                        expect(msg).toBe("This page can only be accessed by registered users")
+                        expect(status).toBe(403);
+                        done()
+                    })
+            })
+        })
+    })
 })

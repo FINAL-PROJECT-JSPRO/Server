@@ -2,6 +2,7 @@ const { User, History } = require('../models')
 const { compare, hash } = require('../helpers/hash')
 const { sign } = require('../helpers/jwt')
 
+
 class UserController {
     static register (req, res, next) {
         const {name, username, email, password} = req.body
@@ -125,6 +126,28 @@ class UserController {
                 res.status(200).json(result)
             })
             .catch(next)
+        }
+    }
+
+    static photoUpload(req, res, next) {
+        const id = req.currentUserId
+        const { imageUrl } = req
+        if (imageUrl) {
+            User.update({
+                imageUrl: imageUrl
+            }, { where: { id }} )
+            .then(result => {
+                if (result) {
+                    res
+                        .status(200)
+                        .json({msg: "User's profile picture updated successfully"})
+                } else {
+                    next({ type: 'picNotUpdated' })
+                }
+            })
+            .catch(next)
+        } else {
+            next({ type: 'picNotUpdated' })
         }
     }
 }
