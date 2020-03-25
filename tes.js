@@ -1,8 +1,8 @@
 // // Subject 1
 // function simpleString() {
-//   const first = 'JavaScript';
-//   const second = 'is';
-//   const third = 'awesome';
+//   const first = 'Javascript'
+//   const second = 'is'
+//   const third = 'awesome'
 
 //   return first + ' ' + second + ' ' + third
 // }
@@ -47,7 +47,7 @@
 //   let result = []
 //   let newArr = arr
 //   .map(string => string.split(':'))
-  
+
 //   for (let i = 0; i < newArr.length; ++i) {
 //     result.push(newArr[i][0] + ':' + newArr[newArr.length -1 -i][1]);
 //   }
@@ -72,17 +72,17 @@
 
 
 // Subject 7
-// function transform(source, target) {
-//   var result = [source];
-//   for (var i = 0; i <= source.length; i++) {
-//     if (source[i] !== target[i]) {
-//       var newStr = source.replace(source.slice(0, i + 1), target.slice(0, i + 1)); 
-//       result.push(newStr);
-//     }
-//   }
-//   return result;
-// }
-
+function transform(source, target) {
+  var result = [source];
+  for (var i = 0; i <= source.length; i++) {
+    if (source[i] !== target[i]) {
+      var newStr = source.replace(source.slice(0, i + 1), target.slice(0, i + 1));
+      result.push(newStr);
+    }
+  }
+  return result;
+}
+console.log
 // console.log(transform('one two three', 'four five six'))
 // // [
 // //   'one two three', 'fne two three',
@@ -113,7 +113,7 @@
 //     constructor(arg) {
 //       this.arg = arg
 //     }
-    
+
 //     sayWord() {
 //       return this.arg
 //     }
