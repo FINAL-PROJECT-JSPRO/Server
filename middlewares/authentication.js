@@ -8,9 +8,9 @@ module.exports = (req, res, next) => {
       const auth = verify(token)
       if (auth) {
         User.findOne({ where: { id: auth.id }, include: History })
-        .then(user => {
-          if (user) {
-            req.currentUserId = user.id
+          .then(user => {
+            if (user) {
+              req.currentUserId = user.id
               req.userHistories = user.Histories
               next()
             } else {

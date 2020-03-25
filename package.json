@@ -46,7 +46,8 @@
       "<rootDir>/middlewares/authorization",
       "<rootDir>/middlewares/errorHandler",
       "<rootDir>/helpers/transpile",
-      "<rootDir>/helpers/executeCode"
+      "<rootDir>/helpers/executeCode",
+      "<rootDir>/middlewares/s3upload"
     ]
   }
 }
