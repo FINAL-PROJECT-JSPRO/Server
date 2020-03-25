@@ -9,7 +9,7 @@ const authentication = require('../middlewares/authentication')
 
 router.post('/login', userController.login)
 router.post('/register', userController.register)
-router.post('/verify', authentication, userController.findOne)
+router.get('/', authentication, userController.findOne)
 router.post('/gSignIn', googleController.signInGoogle)
 router.post('/history', authentication, historyController.addHistory)
 router.put('/history', authentication, historyController.updateHistory)
