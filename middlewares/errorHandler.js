@@ -1,4 +1,5 @@
 module.exports = (err, req, res, next) => {
+    console.log(err)
     if (err.type === 'notlogin') {
         err.status = 403
         err.msg = "This page can only be accessed by registered users"
@@ -31,6 +32,9 @@ module.exports = (err, req, res, next) => {
     } else if (err.type === 'tokenNotProvided') {
         err.status = 403
         err.msg = "Please login by github account first"
+    } else if (err.type === 'picNotUpdated') {
+        err.status = 400
+        err.msg = "User's profile picture did not updated"
     }
 
     if (err.name === "SequelizeValidationError") {
