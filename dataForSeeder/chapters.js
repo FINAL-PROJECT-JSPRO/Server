@@ -437,11 +437,11 @@ module.exports = [
 <span>}</span><span>)</span><span>;</span></div></span></pre>
 <p class="chapterBody">The first parameter is the type of event to be listened for, and the second parameter is a callback function that is invoked when the event is fired.</p><p class="chapterBody">When we pass a callback function as an argument to another function, we are only passing the function's reference as an argument, i.e, the callback function is not executed immediately. It is “called back” (hence the name) asynchronously somewhere inside the containing function’s body. The containing function is responsible for executing the callback function when the time comes.</p><p class="chapterBody">You can write your own function containing a callback easily enough. Let's look at another example that loads a resource via the XMLHttpRequest API </p>
 <pre class="chapterPre"><span class="chapterCodeBlock"><div class="chapterCodeContainer"><span class="code-keyword">function</span> <span class="code-function">loadAsset</span><span>(</span><span class="code-parameter">url<span>,</span> type<span>,</span> callback</span><span>)</span> <span>{</span>
-  <span class="code-keyword">let</span> xhr <span class="code-operator">=</span> <span class="code-keyword">new</span> <span class="token class-name">XMLHttpRequest</span><span>(</span><span>)</span><span>;</span>
+  <span class="code-keyword">let</span> xhr <span class="code-operator">=</span> <span class="code-keyword">new</span> <span class="code-class-name">XMLHttpRequest</span><span>(</span><span>)</span><span>;</span>
   xhr<span>.</span><span class="code-function">open</span><span>(</span><span class="code-string">'GET'</span><span>,</span> url<span>)</span><span>;</span>
   xhr<span>.</span>responseType <span class="code-operator">=</span> type<span>;</span>
 
-  xhr<span>.</span><span class="code-function-variable function">onload</span> <span class="code-operator">=</span> <span class="code-keyword">function</span><span>(</span><span>)</span> <span>{</span>
+  xhr<span>.</span><span class="code-function">onload</span> <span class="code-operator">=</span> <span class="code-keyword">function</span><span>(</span><span>)</span> <span>{</span>
     <span class="code-function">callback</span><span>(</span>xhr<span>.</span>response<span>)</span><span>;</span>
   <span>}</span><span>;</span>
 
@@ -449,7 +449,7 @@ module.exports = [
 <span>}</span>
 
 <span class="code-keyword">function</span> <span class="code-function">displayImage</span><span>(</span><span class="code-parameter">blob</span><span>)</span> <span>{</span>
-  <span class="code-keyword">let</span> objectURL <span class="code-operator">=</span> <span class="token constant">URL</span><span>.</span><span class="code-function">createObjectURL</span><span>(</span>blob<span>)</span><span>;</span>
+  <span class="code-keyword">let</span> objectURL <span class="code-operator">=</span> <span class="code-constant">URL</span><span>.</span><span class="code-function">createObjectURL</span><span>(</span>blob<span>)</span><span>;</span>
 
   <span class="code-keyword">let</span> image <span class="code-operator">=</span> document<span>.</span><span class="code-function">createElement</span><span>(</span><span class="code-string">'img'</span><span>)</span><span>;</span>
   image<span>.</span>src <span class="code-operator">=</span> objectURL<span>;</span>
@@ -486,12 +486,12 @@ gods<span>.</span><span class="code-function">forEach</span><span>(</span><span 
   <span class="code-keyword">return</span> <span class="code-keyword">new</span> <span class="code-keyword">Promise</span><span>(</span><span class="code-parameter">resolve</span> <span class="code-operator">=&gt;</span> <span>{</span>
     <span class="code-function">setTimeout</span><span>(</span><span>(</span><span>)</span> <span class="code-operator">=&gt;</span> <span>{</span>
       <span class="code-function">resolve</span><span>(</span>x<span>)</span><span>;</span>
-    <span>}</span><span>,</span> <span class="token number">2000</span><span>)</span><span>;</span>
+    <span>}</span><span>,</span> <span class="code-number">2000</span><span>)</span><span>;</span>
   <span>}</span><span>)</span><span>;</span>
 <span>}</span>
 
 <span class="code-keyword">async</span> <span class="code-keyword">function</span> <span class="code-function">f1</span><span>(</span><span>)</span> <span>{</span>
-  <span class="code-keyword">var</span> x <span class="code-operator">=</span> <span class="code-keyword">await</span> <span class="code-function">resolveAfter2Seconds</span><span>(</span><span class="token number">10</span><span>)</span><span>;</span>
+  <span class="code-keyword">var</span> x <span class="code-operator">=</span> <span class="code-keyword">await</span> <span class="code-function">resolveAfter2Seconds</span><span>(</span><span class="code-number">10</span><span>)</span><span>;</span>
   console<span>.</span><span class="code-function">log</span><span>(</span>x<span>)</span><span>;</span> <span class="code-comment">// 10</span>
 <span>}</span>
 

@@ -22,8 +22,8 @@ module.exports = [
   },
   {
     question:`<h1 class="examTitle">Guess the Word!</h1><p class="examBody">Complete the function that takes an array of words.</p><p class="examBody">You must concatenate the <code class="examCode">n</code>th letter from each word to construct a new word which should be returned as a string, where <code class="examCode">n</code> is the position of the word in the list.</p><p class="examBody">For example:</p><pre class="examPre"><code class="examCode">["yoda", "best", "has"]  --&gt;  "yes"
-  ^        ^        ^
-  n=0     n=1     n=2</code></pre>`,
+   ^        ^        ^
+  n=0      n=1      n=2</code></pre>`,
     skeleton:
 `function nthChar(words) {
   // write your code here
@@ -42,7 +42,7 @@ module.exports = [
   },
   {
     question:`<h1 class="examTitle">Tail Swap!</h1><p class="examBody">You'll be given a list of two strings, and each will contain exactly one colon (<code>":"</code>) in the middle (but not at beginning or end). The length of the strings, before and after the colon, are random.</p><p class="examBody">Your job is to return a list of two strings (in the same order as the original list), but with the characters after each colon swapped.</p><p class="examBody">For example:</p>
-<pre class="examPre"><code class="examPre">["abc:123", "cde:456"]  --&gt;  ["abc:456", "cde:123"]
+<pre class="examPre"><code class="examPre"> ["abc:123", "cde:456"]  --&gt;  ["abc:456", "cde:123"]
   ["a:12345", "777:xyz"]  --&gt;  ["a:xyz", "777:12345"]</code></pre>`,
     skeleton:
 `// function, write your code here
@@ -64,10 +64,10 @@ module.exports = [
   },
   {
     question:`<h1 class="examTitle">Transformation Iteration</h1><p class="examBody">Write function with 2 parameters (source, target) that takes in 2 strings and transforms <code>source</code> into the <code>target</code> string.</p><p class="examBody">For example :</p>
-<pre class="examPre"><code class="examCode">function transform(source, target) {}</code></pre>
+<pre class="examPre"><code class="examCode">function transform(source, target) {}</code></pre><br>
 <pre class="examPre"><code class="examCode">transform('car','see') === ["car", "sar", "ser", "see"]
-transform('floor','brake') === ["floor", "bloor", "broor", "braor", "brakr", "brake"]
-transform('kata','math') === ["kata", "mata", "math"]</code></pre>
+ transform('floor','brake') === ["floor", "bloor", "broor", "braor", "brakr", "brake"]
+ transform('kata','math') === ["kata", "mata", "math"]</code></pre>
 <p class="examBody"><code class="examCode">source</code> and <code class="examCode">target</code> will always be of the same length</p>`,
     skeleton:
 `function transform(source, target) {
@@ -81,7 +81,7 @@ transform('kata','math') === ["kata", "mata", "math"]</code></pre>
     question:`<h1 class="examTitle">Javascript Namespacing</h1><p class="examBody">Define a class named MyClass inside a namespace MyNamespace. The class constructor should accept a single string argument. It should also have a function named sayHello that returns the string passed into the constructor.</p><p class="examBody">Example :</p>
 <pre class="examPre"><code class="examCode">const myObject = new MyNamespace.MyClass(word)
 
-const phrase = myObject.sayWord(); // phrase should be value of word argument</code></pre><p class="examBody">The interesting part is that MyClass should only be accessible via the namespace and should not define any extra global variables. Code should not redefine an existing namespace, but should also function if the namespace is not previously defined.</p>`,
+ const phrase = myObject.sayWord(); // phrase should be value of word argument</code></pre><p class="examBody">The interesting part is that MyClass should only be accessible via the namespace and should not define any extra global variables. Code should not redefine an existing namespace, but should also function if the namespace is not previously defined.</p>`,
     skeleton:
 `function simpleClass(word) {
   let MyNamespace = {}
@@ -99,7 +99,7 @@ const phrase = myObject.sayWord(); // phrase should be value of word argument</c
   {
     question:`<h1 class="examTitle">FINAL LIVE CODE!</h1><p class="examTitle">There is an array with some numbers. All numbers are equal except for one.</p><p class="examTitle">You have one simple job, find the special one!</p>
 <pre class="examPre"><code class="examCode">findUnique([ 3, 3, 3, 5, 3, 3 ]) === 5
-findUniq([ 2, 2, 0.15, 2, 2 ]) === 0.15</code></pre>
+ findUnique([ 2, 2, 0.15, 2, 2 ]) === 0.15</code></pre>
 <p class="examTitle">It’s guaranteed that array contains at least 3 numbers.</p>`,
     skeleton:
 `function findUnique(arr) {
