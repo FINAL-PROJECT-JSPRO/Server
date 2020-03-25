@@ -385,7 +385,7 @@ describe('User Routes', () => {
             })
         })
     
-        describe('Profile picture updated successfully', () => {
+        describe('Profile picture failed to update', () => {
             test('Should return status 400 and message that profile picture did not updated', (done) => {
                 request(app)
                     .patch('/users/photoUpload')
@@ -405,6 +405,41 @@ describe('User Routes', () => {
             test('Should return status 403 and message that unregistered user cannot access this route', (done) => {
                 request(app)
                     .patch('/users/photoUpload')
+                    .end((err, response) => {
+                        const { body, status } = response
+                        const { msg } = body
+                        expect(err).toBe(null);
+                        expect(msg).toBe("This page can only be accessed by registered users")
+                        expect(status).toBe(403);
+                        done()
+                    })
+            })
+        })
+    })
+
+    describe('Find by user id', () => {
+        describe('Success to fetch one user by id', () => {
+            test('Should return status code 200 and user details', (done) => {
+                request(app)
+                    .get('/users')
+                    .set('access_token', token)
+                    .end((err, response) => {
+                        const { body, status } = response
+                        const { username, email, name } = body
+                        expect(err).toBe(null);
+                        expect(username).toBe("dudungdanmaman")
+                        expect(email).toBe("dudung@mail.com")
+                        expect(name).toBe(null)
+                        expect(status).toBe(200);
+                        done()
+                    })
+            })
+        })
+
+        describe('Unauthenticated user', () => {
+            test('Should return status code 403 and message that unregistered user cannot access this route', (done) => {
+                request(app)
+                    .get('/users')
                     .end((err, response) => {
                         const { body, status } = response
                         const { msg } = body

@@ -3,6 +3,8 @@ const app = require('../app')
 const { User, Chapter, sequelize } = require('../models')
 const { queryInterface } = sequelize
 const { sign } = require('../helpers/jwt')
+const Redis = require('ioredis')
+const redis = new Redis()
 
 let token
 let id_user
@@ -39,8 +41,9 @@ describe('chapters router test', () => {
             .catch(err => done(err))
     })
 
-    describe('test for get all chapter', () => {
-        test('it shoul be return array of object and status 200', (done) => {
+    describe('Get all chapter (without redis)', () => {
+        redis.del("services")
+        test('It should return array of object of chapters and status code 200', (done) => {
             request(app)
                 .get('/chapters')
                 .set('access_token', token)
@@ -52,7 +55,34 @@ describe('chapters router test', () => {
         })
     })
 
-    describe('test for get one chpater', () => {
+    describe('Get all chapters (with redis)', () => {
+        test('It should return array of object of chapters and status code 200', (done) => {
+            request(app)
+                .get('/chapters')
+                .set('access_token', token)
+                .end((err, response) => {
+                    expect(err).toBe(null)
+                    expect(response.body).toStrictEqual(expect.any(Array))
+                    done()
+                })
+        })
+    })
+
+    describe('Get one chapter (without redis)', () => {
+        redis.del("services")
+        test('it should be return object and status 200', (done) => {
+            request(app)
+                .get(`/chapters/${id_chapter}`)
+                .set('access_token', token)
+                .end((err, response) => {
+                    expect(err).toBe(null)
+                    expect(response.body).toStrictEqual(expect.any(Object))
+                    done()
+                })
+        })
+    })
+
+    describe('Get one chapter (with redis)', () => {
         test('it should be return object and status 200', (done) => {
             request(app)
                 .get(`/chapters/${id_chapter}`)
