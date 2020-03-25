@@ -5,6 +5,11 @@ module.exports = {
     const UserId = req.currentUserId
     UserSubject.findAll({
       where: { UserId },
+      order: [  
+        ['SubjectId', 'ASC'],
+        [ { model: Subject, as: 'Subjects' }, 
+          { model: Chapter, as: 'Chapters' }, 'id', 'ASC'] 
+      ],
       include: [{
         model: Subject,
         include: [{
@@ -13,9 +18,9 @@ module.exports = {
             required: false,
             model: History,
             where: { UserId }
-          }]
+          }],
         }]
-      }]
+      }],
     })
       .then(subjects => {
         res
