@@ -42,6 +42,7 @@
       "<rootDir>/controllers/githubController",
       "<rootDir>/controllers/repositoryController",
       "<rootDir>/middlewares/authorization",
+      "<rootDir>/middlewares/errorHandler",
       "<rootDir>/helpers/transpile",
       "<rootDir>/helpers/executeCode"
     ]

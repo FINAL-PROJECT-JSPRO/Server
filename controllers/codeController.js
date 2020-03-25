@@ -1,4 +1,4 @@
-const { executeCode, executeSandbox } = require('../helpers/executeCode')
+const { transpileCode, executeCode, executeSandbox } = require('../helpers/executeCode')
 const assert = require('assert')
 const {
   firstParams, firstAnswer,
@@ -68,8 +68,11 @@ module.exports = {
 
     let correctAnswer = true
     let errorCatcher = {}
+    
+    const transpiledCode = transpileCode(code)
+
     params.forEach ((param, index) => {
-      const { success, error } = executeCode(code, param)
+      const { success, error } = executeCode(transpiledCode, param)
       if (success) {
             try {
               assert.strictEqual(String(success), String(answers[index]))

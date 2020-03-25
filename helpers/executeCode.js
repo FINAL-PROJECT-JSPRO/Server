@@ -2,7 +2,7 @@ const vm = require('vm')
 const transpile = require('./transpile')
 
 module.exports =  {
-  executeCode(str, params) {
+  transpileCode(str) {
     let code = ''
   
     let firstString = ''
@@ -22,7 +22,10 @@ module.exports =  {
     } else {
       code = str
     }
+    return code
+  },
 
+  executeCode(code, params) {
     const result = {
       success: null,
       error: {}
