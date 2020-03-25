@@ -140,7 +140,10 @@ class UserController {
                 if (result) {
                     res
                         .status(200)
-                        .json({msg: "User's profile picture updated successfully"})
+                        .json({
+                            msg: "User's profile picture updated successfully",
+                            imageUrl
+                        })
                 } else {
                     next({ type: 'picNotUpdated' })
                 }
