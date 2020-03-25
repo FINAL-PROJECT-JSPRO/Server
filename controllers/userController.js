@@ -1,5 +1,5 @@
 const { User, History } = require('../models')
-const { compare } = require('../helpers/hash')
+const { compare, hash } = require('../helpers/hash')
 const { sign } = require('../helpers/jwt')
 
 class UserController {
@@ -94,17 +94,39 @@ class UserController {
     }
 
     static editProfile(req, res, next) {
-        const { name, username, email } = req.body
+        const { name, username, email, password, confirmPassword } = req.body
+        let updatedPassword
         const id = req.currentUserId
-        User.update({
-            name, username, email
-        }, {
-            where: { id }
-        })
-        .then(result => {
-            res.status(200).json(result)
-        })
-        .catch(next)
+
+        if (password) {
+            if (password === confirmPassword) {
+               updatedPassword = hash(password)
+               User.update({
+                name, username, email, password: updatedPassword
+                }, {
+                    where: { id }
+                })
+                .then(result => {
+                    res.status(200).json(result)
+                })
+                .catch(next)
+            } else {
+                next({
+                    status: 400,
+                    msg: 'Password does not match'
+                })
+            }
+        } else {
+            User.update({
+                name, username, email
+            }, {
+                where: { id }
+            })
+            .then(result => {
+                res.status(200).json(result)
+            })
+            .catch(next)
+        }
     }
 }
 
