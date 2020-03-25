@@ -301,23 +301,6 @@ describe('User Routes', () => {
         })
     })
 
-    describe('verify user', () => {
-        test('it shoul be return user and status' , (done) => {
-            request(app)
-                .post('/users/verify')
-                .set('access_token', token)
-                .end((err, response) => {
-                    expect(err).toBe(null)
-                    expect(response.status).toBe(200)
-                    expect(response.body).toHaveProperty('Histories', expect.any(Array))
-                    expect(response.body).toHaveProperty('email', 'dummy@dummy.com')
-                    expect(response.body).toHaveProperty('name', null)
-                    expect(response.body).toHaveProperty('username', 'Dummy Test')
-                    done()
-                })
-        })
-    })
-
     describe('edit profile from user', () => {
         test('it should be return array with value total of edited and status' , (done) => {
             request(app)
