@@ -4,6 +4,7 @@ module.exports = {
   getAllUserSubject(req, res, next) {
     const UserId = req.currentUserId
     UserSubject.findAll({
+      order: [['id']],
       where: { UserId },
       include: [{
         model: Subject,

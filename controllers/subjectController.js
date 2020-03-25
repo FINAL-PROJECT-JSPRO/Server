@@ -9,6 +9,7 @@ module.exports = {
           return JSON.parse(result)
         } else {
           return Subject.findAll({
+            order: [['id']],
             include: [Chapter]
           })
         }

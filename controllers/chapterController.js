@@ -8,7 +8,9 @@ module.exports = {
         if (result) {
           return JSON.parse(result)
         } else {
-          return Chapter.findAll()
+          return Chapter.findAll({
+            oreder: [['id']]
+          })
         }
       })
       .then(chapters => {
