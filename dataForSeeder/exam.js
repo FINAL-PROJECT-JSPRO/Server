@@ -35,9 +35,7 @@ module.exports = [
   {
     question:`<h1 class="examTitle">Split the Chocolate!</h1><p class="examBody">Your task is to split the chocolate bar of given dimension <code class="examCode">n</code> x <code class="examCode">m</code> into small squares. Each square is of size 1x1 and unbreakable. Implement a function that will return minimum number of breaks needed.</p><p class="examBody">For example if you are given a chocolate bar of size <code class="examCode">2</code> x <code class="examCode">1</code> you can split it to single squares in just one break, but for size <code class="examCode">3</code> x <code class="examCode">1</code> you must do two breaks.</p><p class="examBody">If input data is invalid you should return 0 (as in no breaks are needed if we do not have any chocolate to split). Input will always be a non-negative integer.</p>`,
     skeleton:
-`// function, write your code here
-
-`,
+`// function, replace me with your code`,
     SubjectId: 4
   },
   {
@@ -45,9 +43,7 @@ module.exports = [
 <pre class="examPre"><code class="examPre"> ["abc:123", "cde:456"]  --&gt;  ["abc:456", "cde:123"]
   ["a:12345", "777:xyz"]  --&gt;  ["a:xyz", "777:12345"]</code></pre>`,
     skeleton:
-`// function, write your code here
-
-`,
+`// function, replace me with your code`,
     SubjectId: 5
   },
   {
