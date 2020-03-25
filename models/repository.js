@@ -65,7 +65,7 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-    github_url: {
+    githubURL: {
       type: DataTypes.TEXT,
       allowNull: true,
       validation: {

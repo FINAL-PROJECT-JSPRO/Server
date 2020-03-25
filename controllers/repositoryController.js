@@ -2,17 +2,9 @@ const { Repository, sequelize } = require('../models')
 const { Op } = require('sequelize')
 
 module.exports = {
-  createRepository (req, res, next) {
-    const { name, code, description, fileName } = req.body
+  validateRepository (req, res, next) {
     const UserId = req.currentUserId
-    const params = {
-      name,
-      code,
-      description,
-      fileName,
-      UserId
-    }
-
+    const { name } = req.body
     Repository.findAll({
       where: {
         [Op.and]: [
@@ -33,18 +25,33 @@ module.exports = {
           msg: 'Duplicate repository'
         })
       } else {
-        Repository.create(params)
-        .then(repository => {
-          res.status(201).json({
-            repository
-          })
-        })
-        .catch(err => {
-          next(err)
+        res.status(200).json({
+          msg: 'Validate'
         })
       }
     })
     .catch(err => next(err))
+  },
+  createRepository (req, res, next) {
+    const { name, code, githubURL, description, fileName } = req.body
+    const UserId = req.currentUserId
+    const params = {
+      name,
+      code,
+      description,
+      fileName,
+      UserId,
+      githubURL
+    }
+    Repository.create(params)
+    .then(repository => {
+      res.status(201).json({
+        repository
+      })
+    })
+    .catch(err => {
+      next(err)
+    })
   },
   getRepositories (req, res, next) {
     const UserId = req.currentUserId
@@ -60,30 +67,4 @@ module.exports = {
     })
     .catch(err => next(err))
   },
-  getRepository (req, res, next) {
-    const id = req.params.id
-    Repository.findOne({
-      where: {
-        id
-      }
-    })
-    .then(repository => {
-      res.status(200).json({
-        repository
-      })
-    })
-    .catch(err => next(err))
-  },
-  updateRepository (req,res, next) {
-    const { github_url } = req.body
-    const id = req.params.id
-    Repository.update({
-      github_url
-    }, { where: { id }, returning: true
-    })
-    .then(response => {
-      res.status(200).json(response)
-    })
-    .catch(err => next(err))
-  }
 }
