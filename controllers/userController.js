@@ -24,7 +24,6 @@ class UserController {
     }
 
     static login(req, res, next) {
-        // console.log(req.body, '===')
         const { userInput, password } = req.body
         const promises = [
             User.findOne({ where: { email: userInput } }),

@@ -351,7 +351,6 @@ describe('User Routes', () => {
     })
 
     describe('edit user subject', () => {
-        // console.log(user_id, '}+{}+{}{+}+{+}}{}++}+{')
         test('success edit userSubject', (done) => {
             request(app)
                 .patch('/users/subjectHistory/1')
@@ -360,7 +359,6 @@ describe('User Routes', () => {
                     status: 'unlocked'
                 })
                 .end((err, response) => {
-                    // console.log(response.body, '}+{+{{}+{}}++{{}{}')
                     expect(err).toBe(null)
                     expect(response.body).toHaveProperty('msg', 'Status updated successfully')
                     expect(response.status).toBe(200)
@@ -376,7 +374,6 @@ describe('User Routes', () => {
                     status: 'unlocked'
                 })
                 .end((err, response) => {
-                    // console.log(response.body, '}+{+{{}+{}}++{{}{}')
                     expect(err).toBe(null)
                     expect(response.body).toHaveProperty('msg', 'Subject history not found')
                     expect(response.status).toBe(404)
