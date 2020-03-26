@@ -2,7 +2,6 @@ const { User, History } = require('../models')
 const { compare, hash } = require('../helpers/hash')
 const { sign } = require('../helpers/jwt')
 
-
 class UserController {
     static register (req, res, next) {
         const {name, username, email, password} = req.body
@@ -82,7 +81,7 @@ class UserController {
         const id = req.currentUserId
         User.findOne({
             include: [History],
-            attributes: ['username', 'email', 'name'],
+            attributes: ['username', 'email', 'name', 'imageUrl'],
             where: {
                 id
             },

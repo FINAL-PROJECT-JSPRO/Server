@@ -8,7 +8,7 @@ module.exports = (req, res, next) => {
     secretAccessKey: process.env.SECRETACCESSKEY,
     region: process.env.REGION
   })
-  
+
   if (req.file) {
     const s3 = new aws.S3();
     const params = {
@@ -17,7 +17,7 @@ module.exports = (req, res, next) => {
       Body: fs.createReadStream(req.file.path),
       Key: `JS-PRO/${req.file.originalname}`
     }
-  
+
     s3.upload(params, (err, data) => {
       if (err) {
         console.log('Error occured while trying to upload to S3 bucket', err);
